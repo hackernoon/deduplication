@@ -1,0 +1,52 @@
+<title>Deduplication.tech Handoff</title>
+<style>
+:root{--bg:#0d0e0c;--ink:#e9eae6;--dim:#8e908b;--line:#2a2c28;--green:#00e85b;--amber:#ffb300}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#fafaf7;--ink:#151613;--dim:#5d605c;--line:#dcddd8;--green:#00a843;--amber:#b77f00}}
+:root[data-theme="light"]{--bg:#fafaf7;--ink:#151613;--dim:#5d605c;--line:#dcddd8;--green:#00a843;--amber:#b77f00}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 ui-sans-serif,system-ui,sans-serif;margin:0}
+main{max-width:760px;margin:0 auto;padding:40px 16px 80px}
+h1{font:700 30px/1.2 ui-monospace,Menlo,monospace;margin:0 0 6px}
+h2{font:700 14px ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--green);border-top:1px solid var(--line);padding-top:22px;margin-top:34px}
+.sub{color:var(--dim)} code{font:13px ui-monospace,Menlo,monospace;background:rgba(127,127,127,.15);padding:1px 5px;border-radius:3px}
+li{margin:4px 0} .warn{color:var(--amber)} table{border-collapse:collapse;width:100%;font-size:14px}td{border-bottom:1px solid var(--line);padding:6px 8px 6px 0;vertical-align:top}
+</style>
+<main>
+<h1>deduplication.tech — handoff</h1>
+<p class="sub">HackerNoon site: one word, two meanings, data on which meaning owns it. State as of Oct 22, 2026, for continuing in Cursor.</p>
+
+<h2>What exists</h2>
+<ul>
+<li><b>Static site generator</b> (<code>deduplication-site/build.mjs</code>, Node, no deps) → <code>dist/</code>: 636 pages — 632 term pages at <code>/term/{term}/{original}/{duplicate}/</code> (also the H1 and title), home with search + word cloud + leaderboards, 12 field pages ranked by popularity, Method page (incl. colour system), All terms, Terms &amp; Conditions, sitemap, robots, <code>vercel.json</code>.</li>
+<li><b>Term database</b>: <code>src/terms-100/200/300.txt</code> + <code>terms.txt</code>, pipe-delimited: <code>term|cat|origLabel|origWiki|origYear|dupLabel|dupWiki|dupYear|note|origDef|dupDef|qA|qB</code>.</li>
+<li><b>Data</b>: <code>src/data.json</code> = Wikipedia monthly pageviews 2015-07→now for 630 terms, collected in your browser. Verdict = duplicate's 12-month share: &gt;60% green (duplicate wins), &lt;40% grey (original holds), 40–60% amber (contested), no data dim grey.</li>
+<li><b>Preview</b>: <code>node build.mjs --preview</code> → single-file SPA (published as the claude.ai artifact).</li>
+<li><b>Pipeline (started)</b>: <code>deduplication-pipeline/</code> — terms export, matcher, labeler, HF upload helper. Runners + workflows still TODO (see its README).</li>
+</ul>
+
+<h2>Decisions made</h2>
+<table>
+<tr><td>Cut</td><td>Hacker News (your call), Google Trends (unofficial API rate-limits; official API is alpha by application — you were filling the form), tug-of-war and pulsing cloud animations (hard to read). Kept: slight grow on hover.</td></tr>
+<tr><td>Spoken data</td><td>YODAS (YouTube, CC BY 3.0, attribute) + OpenSubtitles (Movies &amp; TV; publish counts only, raw text stays private). Dropped MediaSum/GigaSpeech (non-commercial) and other spoken-media sets.</td></tr>
+<tr><td>Compute</td><td>Free: GitHub Actions on a public repo (parallel matrix jobs, 6h each) + Hugging Face datasets for storage. HF Spaces compute now needs a paid plan.</td></tr>
+<tr><td>Names</td><td>GitHub <code>hackernoon/deduplication</code> (folders: youtube/, tv-and-movies/, counts/). HF datasets <code>hackernoon/deduplication-youtube</code> (public), <code>-tv-and-movies</code> (private), <code>-counts</code> (public).</td></tr>
+<tr><td>Bluesky</td><td>Possible replacement for HN: search needs a free account + app password; Jetstream firehose is free but forward-only. Untested.</td></tr>
+</table>
+
+<h2>Recommended next steps (in Cursor)</h2>
+<ol>
+<li><b>Ship the site now.</b> <code>cd deduplication-site && node build.mjs</code>, then <code>npx vercel deploy dist --prod</code> (or drag <code>dist/</code> into Cloudflare Pages) and point deduplication.tech at it.</li>
+<li><b>Create the repo + datasets</b> under hackernoon on GitHub and Hugging Face (create a hackernoon HF org if it doesn't exist — the HF owner list only showed your account). Add a write token as GitHub secret <code>HF_TOKEN</code>.</li>
+<li><b>Finish the three runners</b> listed in the pipeline README. Verify the YODAS file layout first (text JSON shards under <code>data/en*/text/</code>) so jobs never download audio.</li>
+<li><b>Pilot 20 terms</b> (MTS, Cloud, Bug, Python, Rust, Kernel…), hand-check ~50 labels each on a tiny review page (Approve / Flip / Neither). Tune <code>MARGIN</code>; add a second small model for "unsure".</li>
+<li><b>Full run</b>, then add YouTube / Movies &amp; TV filters next to the Wikipedia chart on term pages, reading <code>deduplication-counts</code> at build time.</li>
+<li><b>Fix known data limits</b>: 113 terms share a Wikipedia article with another term (e.g. Kubernetes ×6) — spoken data will separate them; give each its own disambiguated article where possible.</li>
+</ol>
+
+<h2>Gotchas</h2>
+<ul>
+<li class="warn">Never publish OpenSubtitles dialogue — counts and shares only.</li>
+<li>Credit YODAS (CC BY 3.0) on Method and T&amp;C (already written).</li>
+<li>Acronyms match case-sensitively (MTS ≠ "mts"); everything else case-insensitive whole word.</li>
+<li>Keep the preview under 16 MB (it's ~14 MB) or drop it and use the real deploy.</li>
+</ul>
+</main>

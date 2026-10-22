@@ -1,0 +1,340 @@
+# deduplication.tech term database
+# term|category|ORIGINAL label|original wiki title|original year|DUPLICATE label|duplicate wiki title|duplicate year|note
+# Left (original) = the older sense. Right (duplicate) = the newer sense riding on the name.
+MTS|ai|Member of Technical Staff||1940s|Monitoring the Situation||2026|Bell Labs job title revived by OpenAI and Anthropic vs. the a16z-backed live-news show that launched in April 2026.
+AI|ai|Artificial insemination|Artificial insemination|1784|Artificial intelligence|Artificial intelligence|1956|The livestock-breeding sense predates the 1956 Dartmouth workshop by 170 years.
+LLM|ai|Master of Laws|Master of Laws|1800s|Large language model|Large language model|2018|Law schools owned these three letters until GPT-2.
+ML|ai|Millilitre|Litre|1795|Machine learning|Machine learning|1959|Metric volume vs. Arthur Samuel's 1959 coinage.
+NLP|ai|Neuro-linguistic programming|Neuro-linguistic programming|1975|Natural language processing|Natural language processing|1950s|Two self-help gurus vs. computational linguistics.
+CV|ai|Curriculum vitae|Curriculum vitae|1482|Computer vision|Computer vision|1966|Your résumé vs. the eyes of the machine.
+RL|ai|Real life|Real life|1990s|Reinforcement learning|Reinforcement learning|1980s|Internet slang vs. reward-maximizing agents.
+CNN|ai|Cable News Network|CNN|1980|Convolutional neural network|Convolutional neural network|1989|Ted Turner vs. Yann LeCun.
+GPT|ai|GUID Partition Table|GUID Partition Table|2000|Generative pre-trained transformer|Generative pre-trained transformer|2018|Disk partitioning scheme vs. OpenAI's model family.
+AGI|ai|Adjusted gross income|Adjusted gross income|1913|Artificial general intelligence|Artificial general intelligence|1997|Tax line vs. the thing labs say is coming.
+RAG|ai|Rag (cloth)|Rag|ancient|Retrieval-augmented generation|Retrieval-augmented generation|2020|A scrap of cloth vs. Meta's 2020 paper.
+MCP|ai|Master Control Program|Master Control Program (Tron)|1982|Model Context Protocol|Model Context Protocol|2024|The villain of Tron vs. Anthropic's open standard.
+Transformer|ai|Electrical transformer|Transformer|1885|Transformer (deep learning)|Transformer (deep learning architecture)|2017|Power-grid hardware vs. "Attention Is All You Need."
+Attention|ai|Attention (psychology)|Attention|ancient|Attention (machine learning)|Attention (machine learning)|2014|William James vs. Bahdanau et al.
+Hallucination|ai|Hallucination (perception)|Hallucination|ancient|Hallucination (AI)|Hallucination (artificial intelligence)|2018|A psychiatric symptom renamed as a model failure mode.
+Alignment|ai|Alignment (engineering)|Wheel alignment|ancient|AI alignment|AI alignment|2014|Who you side with vs. what the model wants.
+Agent|ai|Secret agent|Espionage|ancient|AI agent|Intelligent agent|1990s|Spies vs. software that takes actions.
+Token|ai|Token (coin)|Token coin|ancient|Token (language model)|Large language model|2018|Subway fare vs. the unit LLMs are billed in.
+Model|ai|Fashion model|Model (person)|1850s|Machine learning model|Machine learning|1959|Runways vs. weights.
+Inference|ai|Inference (logic)|Inference|ancient|Inference (ML)|Inference engine|2010s|Aristotle vs. GPU-hours.
+Diffusion|ai|Diffusion (physics)|Diffusion|1855|Diffusion model|Diffusion model|2015|Fick's law vs. Stable Diffusion.
+Distillation|ai|Distillation (chemistry)|Distillation|ancient|Knowledge distillation|Knowledge distillation|2015|Whiskey stills vs. Hinton's teacher–student training.
+Prompt|ai|Prompt (theatre)|Prompter (theatre)|1500s|Prompt engineering|Prompt engineering|2020|Feeding an actor a line vs. feeding a model one.
+Embedding|ai|Embedding (mathematics)|Embedding|1900s|Word embedding|Word embedding|2013|Topology vs. word2vec.
+Neuron|ai|Neuron (biology)|Neuron|1891|Artificial neuron|Artificial neuron|1943|Cajal's brain cells vs. McCulloch–Pitts.
+Grok|ai|Grok (Heinlein)|Grok|1961|Grok (chatbot)|Grok (chatbot)|2023|Stranger in a Strange Land vs. xAI.
+Claude|ai|Claude Monet|Claude Monet|1840|Claude (language model)|Claude (language model)|2023|Water lilies vs. Anthropic's model.
+Gemini|ai|Gemini (constellation)|Gemini (constellation)|ancient|Gemini (language model)|Gemini (language model)|2023|The twins vs. Google DeepMind.
+Llama|ai|Llama (animal)|Llama|ancient|Llama (language model)|Llama (language model)|2023|Andean camelid vs. Meta's open weights.
+Mistral|ai|Mistral (wind)|Mistral (wind)|ancient|Mistral AI|Mistral AI|2023|A cold Provençal wind vs. a Paris AI lab.
+Perplexity|ai|Perplexity (information theory)|Perplexity|1977|Perplexity AI|Perplexity AI|2022|A language-model metric that became a company.
+Anthropic|ai|Anthropic principle|Anthropic principle|1973|Anthropic (company)|Anthropic|2021|Brandon Carter's cosmology vs. the AI lab.
+Copilot|ai|Copilot (aviation)|First officer (aviation)|1920s|Microsoft Copilot|Microsoft Copilot|2023|The second seat in the cockpit vs. the AI sidebar.
+Sora|ai|Sora (Kingdom Hearts)|Sora (Kingdom Hearts)|2002|Sora (text-to-video model)|Sora (text-to-video model)|2024|A video-game hero vs. OpenAI's video model.
+Codex|ai|Codex (book)|Codex|ancient|OpenAI Codex|OpenAI Codex|2021|Bound manuscripts vs. code generation.
+Whisper|ai|Whisper (speech)|Whispering|ancient|Whisper (speech recognition)|Whisper (speech recognition system)|2022|Speaking softly vs. transcribing everything.
+Cursor|ai|Cursor (user interface)|Cursor (user interface)|1960s|Cursor (code editor)|Cursor (code editor)|2023|The blinking line vs. the AI IDE.
+Windsurf|ai|Windsurfing|Windsurfing|1960s|Windsurf (code editor)|Windsurf (company)|2024|The sport vs. the AI IDE.
+Mamba|ai|Mamba (snake)|Mamba|ancient|Mamba (deep learning)|Mamba (deep learning architecture)|2023|Venomous snake vs. state-space model.
+Phi|ai|Phi (letter)|Phi|ancient|Phi (language model)|Phi (language model)|2023|Greek letter vs. Microsoft's small models.
+Watson|ai|Dr. Watson (Sherlock Holmes)|Dr. Watson|1887|IBM Watson|IBM Watson|2011|Sherlock's sidekick vs. Jeopardy champion.
+Bard|ai|Bard (poet)|Bard|ancient|Google Bard|Google Bard|2023|Shakespeare's title vs. Google's short-lived chatbot.
+Sydney|ai|Sydney (city)|Sydney|1788|Sydney (Bing persona)|Sydney (Microsoft)|2023|Australia's largest city vs. Bing's unhinged alter ego.
+Singularity|ai|Gravitational singularity|Gravitational singularity|1916|Technological singularity|Technological singularity|1993|Black holes vs. Vernor Vinge.
+Jailbreak|ai|Prison escape|Prison escape|ancient|Jailbreak (AI)|Prompt injection|2022|Breaking out of prison vs. breaking out of a system prompt.
+Red team|ai|Red team (military)|Red team|1960s|AI red teaming|AI safety|2020s|Cold War war-games vs. model safety testing.
+Guardrails|ai|Guard rail|Guard rail|1800s|AI guardrails|AI safety|2023|Highway barriers vs. output filters.
+Benchmark|ai|Benchmark (surveying)|Benchmark (surveying)|1800s|Benchmark (computing)|Benchmark (computing)|1970s|Chisel marks on stone vs. MMLU.
+Epoch|ai|Epoch (geology)|Epoch (geology)|1700s|Epoch (machine learning)|Epoch (computing)|1980s|Geologic time vs. one pass over the training set.
+Bias|ai|Prejudice|Prejudice|ancient|Algorithmic bias|Algorithmic bias|2010s|Human prejudice encoded in software.
+Regression|ai|Regression (psychology)|Regression (psychology)|1890s|Regression analysis|Regression analysis|1886|Galton's statistics vs. Freud's defense mechanism.
+Stochastic parrot|ai|Parrot|Parrot|ancient|Stochastic parrot|Stochastic parrot|2021|A talking bird vs. Bender & Gebru's critique.
+Shoggoth|ai|Shoggoth (Lovecraft)|Shoggoth|1936|Shoggoth (AI meme)|Shoggoth with smiley face|2022|At the Mountains of Madness vs. the RLHF meme.
+Optimus|ai|Optimus Prime|Optimus Prime|1984|Tesla Optimus|Optimus (robot)|2021|Autobot leader vs. Tesla's humanoid.
+Python|code|Python (snake)|Pythonidae|ancient|Python (programming language)|Python (programming language)|1991|Guido named it after Monty Python, not the snake.
+Java|code|Java (island)|Java|ancient|Java (programming language)|Java (programming language)|1995|Indonesian island and its coffee vs. Sun Microsystems.
+Ruby|code|Ruby (gemstone)|Ruby|ancient|Ruby (programming language)|Ruby (programming language)|1995|A gemstone vs. Matz's language.
+Rust|code|Rust (oxidation)|Rust|ancient|Rust (programming language)|Rust (programming language)|2010|Iron oxide vs. memory safety.
+Go|code|Go (game)|Go (game)|ancient|Go (programming language)|Go (programming language)|2009|The 2,500-year-old board game vs. Google's language.
+Swift|code|Swift (bird)|Swift (bird)|ancient|Swift (programming language)|Swift (programming language)|2014|A fast bird vs. Apple's language.
+Kotlin|code|Kotlin Island|Kotlin Island|ancient|Kotlin (programming language)|Kotlin (programming language)|2011|An island near St. Petersburg vs. JetBrains' language.
+Julia|code|Julia (given name)|Julia (given name)|ancient|Julia (programming language)|Julia (programming language)|2012|A name vs. a numerical language.
+Dart|code|Dart (missile)|Darts|ancient|Dart (programming language)|Dart (programming language)|2011|Pub game vs. Flutter's language.
+Lua|code|Lua (moon, Portuguese)|Moon|ancient|Lua (programming language)|Lua (programming language)|1993|Portuguese for "moon" vs. the embeddable language.
+Elixir|code|Elixir (alchemy)|Elixir|ancient|Elixir (programming language)|Elixir (programming language)|2012|Alchemist's potion vs. the BEAM language.
+Haskell|code|Haskell (surname)|Eddie Haskell|ancient|Haskell (programming language)|Haskell (programming language)|1990|Haskell Curry's name, given to a language.
+Scala|code|La Scala|La Scala|1778|Scala (programming language)|Scala (programming language)|2004|Milan's opera house vs. the JVM language.
+Zig|code|Zigzag|Zigzag|ancient|Zig (programming language)|Zig (programming language)|2016|A sharp turn vs. a systems language.
+Mojo|code|Mojo (magic)|Mojo (African-American culture)|1920s|Mojo (programming language)|Mojo (programming language)|2023|Blues-era charm bag vs. Modular's language.
+Shell|code|Shell (seashell)|Seashell|ancient|Unix shell|Unix shell|1971|The beach vs. the command line.
+Bash|code|Bash (party)|Party|1800s|Bash (Unix shell)|Bash (Unix shell)|1989|A party vs. the Bourne-Again Shell.
+Git|code|Git (British slang)|Git (slang)|1500s|Git (software)|Git|2005|Linus Torvalds named his tool after himself, he joked.
+Docker|code|Dock worker|Stevedore|1800s|Docker (software)|Docker (software)|2013|Longshoremen vs. containers.
+Kubernetes|code|Helmsman (Greek kubernētēs)|Helmsman|ancient|Kubernetes|Kubernetes|2014|Greek for helmsman, root of "cybernetics."
+Kafka|code|Franz Kafka|Franz Kafka|1883|Apache Kafka|Apache Kafka|2011|Jay Kreps named it after the writer.
+Spark|code|Spark (fire)|Spark (fire)|ancient|Apache Spark|Apache Spark|2009|A flicker vs. the big-data engine.
+Cassandra|code|Cassandra (mythology)|Cassandra|ancient|Apache Cassandra|Apache Cassandra|2008|The prophet nobody believed vs. Facebook's database.
+Oracle|code|Oracle (prophecy)|Oracle|ancient|Oracle Corporation|Oracle Corporation|1977|Delphi vs. Larry Ellison.
+Apache|code|Apache people|Apache|ancient|Apache HTTP Server|Apache HTTP Server|1995|A Native American nation vs. the web server.
+Hadoop|code|Hadoop (toy elephant)|Doug Cutting|2000s|Apache Hadoop|Apache Hadoop|2006|Doug Cutting's son's toy elephant.
+Hive|code|Beehive|Beehive|ancient|Apache Hive|Apache Hive|2010|Bees vs. SQL on Hadoop.
+Pandas|code|Giant panda|Giant panda|ancient|Pandas (software)|Pandas (software)|2008|Bamboo-eating bear vs. DataFrames.
+Anaconda|code|Anaconda (snake)|Anaconda|ancient|Anaconda (Python distribution)|Anaconda (Python distribution)|2012|The world's heaviest snake vs. a Python distro.
+Jupyter|code|Jupiter (planet)|Jupiter|ancient|Project Jupyter|Project Jupyter|2014|The gas giant vs. Julia + Python + R notebooks.
+React|code|Reaction (chemistry)|Chemical reaction|ancient|React (software)|React (software)|2013|To respond vs. Facebook's UI library.
+Angular|code|Angle|Angle|ancient|Angular (web framework)|Angular (web framework)|2016|Geometry vs. Google's framework.
+Vue|code|View (French "vue")|Vue|ancient|Vue.js|Vue.js|2014|French for view vs. Evan You's framework.
+Svelte|code|Svelte (adjective)|Svelte|1600s|Svelte (framework)|Svelte|2016|Slender and elegant vs. the compiler framework.
+Django|code|Django Reinhardt|Django Reinhardt|1910|Django (web framework)|Django (web framework)|2005|Named after the jazz guitarist.
+Flask|code|Laboratory flask|Laboratory flask|ancient|Flask (web framework)|Flask (web framework)|2010|Lab glassware vs. a Python microframework.
+Rails|code|Rail transport|Rail transport|1800s|Ruby on Rails|Ruby on Rails|2004|Trains vs. DHH's framework.
+Spring|code|Spring (season)|Spring (season)|ancient|Spring Framework|Spring Framework|2002|The season after winter vs. Java's framework.
+Hibernate|code|Hibernation|Hibernation|ancient|Hibernate (framework)|Hibernate (framework)|2001|Winter sleep vs. Java ORM.
+Electron|code|Electron (particle)|Electron|1897|Electron (software framework)|Electron (software framework)|2013|J.J. Thomson vs. GitHub's desktop framework.
+Meteor|code|Meteoroid|Meteoroid|ancient|Meteor (web framework)|Meteor (web framework)|2012|Shooting stars vs. a JavaScript framework.
+Babel|code|Tower of Babel|Tower of Babel|ancient|Babel (transcompiler)|Babel (transcompiler)|2014|Genesis 11 vs. the JS compiler.
+Yarn|code|Yarn (textile)|Yarn|ancient|Yarn (package manager)|Yarn (package manager)|2016|Knitting vs. Facebook's npm alternative.
+Homebrew|code|Homebrewing|Homebrewing|ancient|Homebrew (package manager)|Homebrew (package manager)|2009|Beer in the garage vs. macOS packages.
+Ubuntu|code|Ubuntu (philosophy)|Ubuntu philosophy|ancient|Ubuntu (operating system)|Ubuntu|2004|"I am because we are" vs. Canonical's Linux.
+Fedora|code|Fedora (hat)|Fedora|1882|Fedora Linux|Fedora Linux|2003|A felt hat vs. Red Hat's community distro.
+Debian|code|Debra + Ian|Ian Murdock|1993|Debian|Debian|1993|Named for Debra Lynn and Ian Murdock — the rare original-only term.
+Android|code|Android (robot)|Android (robot)|1700s|Android (operating system)|Android (operating system)|2008|Science fiction's humanoid vs. Google's OS.
+Chrome|code|Chromium (element)|Chromium|1797|Google Chrome|Google Chrome|2008|Shiny metal plating vs. the browser.
+Firefox|code|Red panda|Red panda|ancient|Firefox|Firefox|2004|The animal vs. Mozilla's browser.
+Safari|code|Safari (expedition)|Safari|1800s|Safari (web browser)|Safari (web browser)|2003|Swahili for journey vs. Apple's browser.
+Opera|code|Opera (music)|Opera|1600s|Opera (web browser)|Opera (web browser)|1995|Monteverdi vs. the Norwegian browser.
+Edge|code|Edge (geometry)|Edge (geometry)|ancient|Microsoft Edge|Microsoft Edge|2015|A line where two faces meet vs. Internet Explorer's successor.
+Windows|code|Window|Window|ancient|Microsoft Windows|Microsoft Windows|1985|Glass in a wall vs. Microsoft's OS.
+Fork|code|Fork (utensil)|Fork|ancient|Fork (software development)|Fork (software development)|1980s|Cutlery vs. splitting a codebase.
+Bug|code|Insect|Insect|ancient|Software bug|Software bug|1947|Grace Hopper's moth made it stick.
+Cookie|code|Cookie (biscuit)|Cookie|1700s|HTTP cookie|HTTP cookie|1994|A baked treat vs. Lou Montulli's state tracker.
+Spam|code|Spam (food)|Spam (food)|1937|Spam (electronic)|Spamming|1993|Hormel's canned meat via Monty Python.
+Daemon|code|Daemon (mythology)|Daemon (classical mythology)|ancient|Daemon (computing)|Daemon (computing)|1963|Maxwell's demon gave MIT programmers the word.
+Kernel|code|Kernel (seed)|Seed|ancient|Kernel (operating system)|Kernel (operating system)|1960s|A grain of corn vs. the core of an OS.
+Thread|code|Thread (yarn)|Thread (yarn)|ancient|Thread (computing)|Thread (computing)|1960s|Sewing vs. concurrency.
+Container|code|Intermodal container|Intermodal container|1956|Container (virtualization)|OS-level virtualization|2013|Malcom McLean's shipping box vs. Docker.
+Lambda|code|Lambda (letter)|Lambda|ancient|AWS Lambda|AWS Lambda|2014|The Greek letter and lambda calculus vs. serverless.
+Pod|code|Seed pod|Legume|ancient|Kubernetes pod|Kubernetes|2014|Peas vs. the smallest deployable unit.
+Node|code|Node (botany)|Plant stem|ancient|Node.js|Node.js|2009|Where leaves grow vs. server-side JavaScript.
+Hash|code|Hash (food)|Hash (food)|1600s|Hash function|Hash function|1953|Corned-beef hash vs. SHA-256.
+Stack|code|Stack (pile)|Stack (abstract data type)|ancient|Stack Overflow|Stack Overflow|2008|A pile of plates vs. the Q&A site.
+Cache|code|Cache (hidden store)|Cache (geocaching)|1700s|Cache (computing)|Cache (computing)|1967|A trapper's hidden supplies vs. CPU memory.
+Port|code|Port (harbor)|Port|ancient|Port (computer networking)|Port (computer networking)|1970s|A harbor vs. a TCP endpoint.
+Router|code|Router (woodworking)|Router (woodworking)|1800s|Router (computing)|Router (computing)|1970s|A carpentry tool vs. network hardware.
+Firewall|code|Firewall (construction)|Firewall (construction)|1800s|Firewall (computing)|Firewall (computing)|1988|A fireproof wall vs. packet filtering.
+Patch|code|Patch (fabric)|Patch (sewing)|ancient|Patch (computing)|Patch (computing)|1950s|Sewing a hole vs. fixing code.
+Semaphore|code|Flag semaphore|Flag semaphore|1790s|Semaphore (programming)|Semaphore (programming)|1962|Signal flags vs. Dijkstra's lock.
+Mutex|code|Mutual exclusion (logic)|Mutual exclusivity|ancient|Mutex (lock)|Lock (computer science)|1965|Probability vs. concurrency.
+Sandbox|code|Sandbox (play)|Sandpit|1800s|Sandbox (computer security)|Sandbox (computer security)|1990s|A child's play area vs. isolation.
+Mouse|hardware|Mouse (animal)|Mouse|ancient|Computer mouse|Computer mouse|1964|Douglas Engelbart's pointing device.
+Tablet|hardware|Tablet (pharmacy)|Tablet (pharmacy)|ancient|Tablet computer|Tablet computer|2010|Pills and clay tablets vs. the iPad.
+Chip|hardware|Potato chip|Potato chip|1817|Integrated circuit|Integrated circuit|1958|A snack vs. Jack Kilby.
+Wafer|hardware|Wafer (cookie)|Wafer|ancient|Wafer (electronics)|Wafer (electronics)|1950s|A crisp biscuit vs. silicon.
+Silicon|hardware|Silicon (element)|Silicon|1824|Silicon Valley|Silicon Valley|1971|Element 14 vs. a place.
+Pixel|hardware|Pixel (picture element)|Pixel|1965|Google Pixel|Google Pixel|2016|The smallest dot on a screen vs. Google's phone.
+Galaxy|hardware|Galaxy (astronomy)|Galaxy|ancient|Samsung Galaxy|Samsung Galaxy|2009|The Milky Way vs. Samsung's phone line.
+Surface|hardware|Surface (geometry)|Surface (topology)|ancient|Microsoft Surface|Microsoft Surface|2012|A boundary vs. Microsoft hardware.
+Echo|hardware|Echo (mythology)|Echo (mythology)|ancient|Amazon Echo|Amazon Echo|2014|The nymph cursed to repeat vs. Alexa's speaker.
+Kindle|hardware|Kindling|Kindling|ancient|Amazon Kindle|Amazon Kindle|2007|Starting a fire vs. starting a book.
+Retina|hardware|Retina (eye)|Retina|ancient|Retina display|Retina display|2010|The eye's light-sensitive layer vs. Apple marketing.
+ARM|hardware|Arm (anatomy)|Arm|ancient|ARM architecture|ARM architecture family|1985|A limb vs. Acorn RISC Machine.
+Hopper|hardware|Grace Hopper|Grace Hopper|1906|Nvidia Hopper|Hopper (microarchitecture)|2022|The COBOL pioneer vs. the H100.
+Blackwell|hardware|David Blackwell|David Blackwell|1919|Nvidia Blackwell|Blackwell (microarchitecture)|2024|The statistician vs. the B200.
+Ampere|hardware|Ampere (unit)|Ampere|1881|Nvidia Ampere|Ampere (microarchitecture)|2020|André-Marie Ampère's unit vs. the A100.
+Raspberry Pi|hardware|Raspberry|Raspberry|ancient|Raspberry Pi|Raspberry Pi|2012|A fruit (and a rude noise) vs. a $35 computer.
+Bluetooth|hardware|Harald Bluetooth|Harald Bluetooth|958|Bluetooth|Bluetooth|1998|A Viking king who united Denmark.
+Switch|hardware|Light switch|Light switch|1880s|Nintendo Switch|Nintendo Switch|2017|Flipping a light vs. Nintendo's console.
+Quest|hardware|Quest (narrative)|Quest|ancient|Meta Quest|Meta Quest|2019|The hero's journey vs. a VR headset.
+Vision Pro|hardware|Vision (sight)|Visual perception|ancient|Apple Vision Pro|Apple Vision Pro|2024|Eyesight vs. a spatial computer.
+Monitor|hardware|Monitor lizard|Monitor lizard|ancient|Computer monitor|Computer monitor|1970s|Komodo dragons vs. displays.
+Virus|security|Virus (biology)|Virus|1892|Computer virus|Computer virus|1983|Ivanovsky's tobacco mosaic vs. Fred Cohen.
+Worm|security|Worm (animal)|Worm|ancient|Computer worm|Computer worm|1988|Earthworms vs. the Morris worm.
+Trojan|security|Trojan Horse|Trojan Horse|ancient|Trojan horse (computing)|Trojan horse (computing)|1974|The Iliad vs. malware.
+Hacker|security|Hacker (MIT tinkerer)|Hacker culture|1950s|Security hacker|Security hacker|1980s|MIT's Tech Model Railroad Club vs. WarGames. HackerNoon picks the left side.
+Phishing|security|Fishing|Fishing|ancient|Phishing|Phishing|1995|Catching fish vs. catching passwords.
+Honeypot|security|Honey pot|Honey|ancient|Honeypot (computing)|Honeypot (computing)|1990|A jar of honey vs. a decoy server.
+Backdoor|security|Back door|Door|ancient|Backdoor (computing)|Backdoor (computing)|1983|The kitchen entrance vs. hidden access.
+Pegasus|security|Pegasus (mythology)|Pegasus|ancient|Pegasus (spyware)|Pegasus (spyware)|2016|The winged horse vs. NSO Group spyware.
+Payload|security|Payload (rocketry)|Payload|1930s|Payload (malware)|Payload (computing)|1990s|What a rocket carries vs. what malware delivers.
+Whale|security|Whale|Whale|ancient|Whale (crypto investor)|Whale (finance)|2010s|The ocean's largest animal vs. a wallet that moves markets.
+Bitcoin halving|crypto|Halving (math)|Halving|ancient|Bitcoin halving|Bitcoin halving|2012|Dividing by two vs. the four-year supply shock.
+Mining|crypto|Mining|Mining|ancient|Cryptocurrency mining|Bitcoin mining|2009|Digging ore vs. hashing blocks.
+Ledger|crypto|Ledger (accounting)|Ledger|ancient|Ledger (hardware wallet)|Ledger (company)|2014|An accounting book vs. a hardware wallet.
+Polygon|crypto|Polygon (geometry)|Polygon|ancient|Polygon (blockchain)|Polygon (blockchain)|2017|Shapes vs. an Ethereum scaling network.
+Solana|crypto|Solana Beach|Solana Beach, California|1920s|Solana (blockchain)|Solana (blockchain platform)|2020|A San Diego beach town that named a blockchain.
+Cardano|crypto|Gerolamo Cardano|Gerolamo Cardano|1501|Cardano (blockchain)|Cardano (blockchain platform)|2017|The Renaissance mathematician vs. ADA.
+Ripple|crypto|Ripple (water)|Capillary wave|ancient|Ripple (payment protocol)|Ripple Labs|2012|Waves on a pond vs. XRP.
+Tether|crypto|Tether (rope)|Tether|ancient|Tether (cryptocurrency)|Tether (cryptocurrency)|2014|A leash vs. USDT.
+Doge|crypto|Doge of Venice|Doge of Venice|697|Dogecoin|Dogecoin|2013|Venetian rulers vs. a Shiba Inu meme coin.
+Shiba Inu|crypto|Shiba Inu (dog)|Shiba Inu|ancient|Shiba Inu (cryptocurrency)|Shiba Inu (cryptocurrency)|2020|A Japanese dog breed vs. a token.
+Avalanche|crypto|Avalanche|Avalanche|ancient|Avalanche (blockchain)|Avalanche (blockchain platform)|2020|Snow sliding down a mountain vs. AVAX.
+Cosmos|crypto|Cosmos (universe)|Cosmos|ancient|Cosmos (blockchain)|Cosmos (blockchain)|2019|Carl Sagan vs. the internet of blockchains.
+Gas|crypto|Gasoline|Gasoline|1860s|Gas (Ethereum)|Ethereum|2015|Fuel for cars vs. fuel for transactions.
+Wallet|crypto|Wallet|Wallet|ancient|Cryptocurrency wallet|Cryptocurrency wallet|2009|Leather billfold vs. private keys.
+Satoshi|crypto|Satoshi (given name)|Satoshi|ancient|Satoshi Nakamoto|Satoshi Nakamoto|2008|A common Japanese name vs. Bitcoin's pseudonymous creator.
+Merge|crypto|Merge (version control)|Merge (version control)|1970s|The Merge (Ethereum)|Ethereum|2022|Combining branches vs. proof-of-stake.
+POS|crypto|Point of sale|Point of sale|1970s|Proof of stake|Proof of stake|2012|Checkout counters vs. validator staking.
+NFT|crypto|Nutrient film technique|Nutrient film technique|1960s|Non-fungible token|Non-fungible token|2017|Hydroponics vs. Bored Apes.
+DAO|crypto|Data access object|Data access object|1990s|Decentralized autonomous organization|Decentralized autonomous organization|2016|A software pattern vs. on-chain governance.
+Unicorn|business|Unicorn (myth)|Unicorn|ancient|Unicorn (startup)|Unicorn (finance)|2013|Aileen Lee coined it for $1B startups.
+Angel|business|Angel (religion)|Angel|ancient|Angel investor|Angel investor|1978|Heavenly beings vs. early checks.
+Runway|business|Runway (aviation)|Runway|1920s|Runway (startup cash)|Burn rate|2000s|Where planes take off vs. months until you run out of money.
+Bootstrap|business|Bootstrapping (boot strap)|Bootstrapping|1800s|Bootstrap (front-end framework)|Bootstrap (front-end framework)|2011|Pulling yourself up vs. Twitter's CSS.
+Accelerator|business|Particle accelerator|Particle accelerator|1930|Startup accelerator|Startup accelerator|2005|CERN vs. Y Combinator.
+Incubator|business|Incubator (egg)|Incubator (egg)|ancient|Business incubator|Business incubator|1959|Hatching chicks vs. hatching companies.
+Y Combinator|business|Fixed-point combinator|Fixed-point combinator|1930s|Y Combinator|Y Combinator|2005|Haskell Curry's lambda calculus vs. Paul Graham's accelerator.
+Pivot|business|Pivot (basketball)|Pivot foot|1890s|Pivot (startup)|Lean startup|2009|Basketball footwork vs. changing the business.
+Moat|business|Moat|Moat|ancient|Economic moat|Economic moat|1980s|A castle's ditch vs. Warren Buffett's metaphor.
+Flywheel|business|Flywheel|Flywheel|1700s|Flywheel effect|Jim Collins|2001|Mechanical energy storage vs. Jim Collins.
+Amazon|business|Amazon River|Amazon River|ancient|Amazon (company)|Amazon (company)|1994|The river vs. Jeff Bezos.
+Apple|business|Apple (fruit)|Apple|ancient|Apple Inc.|Apple Inc.|1976|Newton's fruit vs. Cupertino.
+Meta|business|Meta (prefix)|Meta (prefix)|ancient|Meta Platforms|Meta Platforms|2021|Greek "beyond" vs. Facebook's rebrand.
+Alphabet|business|Alphabet|Alphabet|ancient|Alphabet Inc.|Alphabet Inc.|2015|ABCs vs. Google's parent.
+X|business|X (letter)|X|ancient|X (social network)|Twitter|2023|The 24th letter vs. Elon Musk's rebrand of Twitter.
+Twitter|business|Bird vocalization|Bird vocalization|ancient|Twitter|Twitter|2006|Bird chatter vs. the social network.
+Tesla|business|Nikola Tesla|Nikola Tesla|1856|Tesla, Inc.|Tesla, Inc.|2003|The inventor vs. the carmaker.
+Uber|business|Über (German)|Übermensch|ancient|Uber|Uber|2009|German "over" vs. ride-hailing.
+Slack|business|Slack (adjective)|Slack (sailing)|ancient|Slack (software)|Slack (software)|2013|Loose rope vs. workplace chat.
+Zoom|business|Zoom lens|Zoom lens|1930s|Zoom (software)|Zoom Video Communications|2011|A camera lens vs. the pandemic meeting app.
+Notion|business|Notion (idea)|Concept|ancient|Notion (productivity software)|Notion (productivity software)|2016|An idea vs. the workspace app.
+Asana|business|Asana (yoga)|Asana|ancient|Asana (software)|Asana, Inc.|2008|A yoga pose vs. project management.
+Confluence|business|Confluence (rivers)|Confluence|ancient|Confluence (software)|Confluence (software)|2004|Where two rivers meet vs. Atlassian's wiki.
+Jira|business|Gojira|Godzilla|1954|Jira (software)|Jira (software)|2002|Atlassian shortened Bugzilla's nickname "Gojira."
+Snowflake|business|Snowflake|Snowflake|ancient|Snowflake Inc.|Snowflake Inc.|2012|Ice crystals vs. the data warehouse.
+Stripe|business|Stripe (pattern)|Stripe (pattern)|ancient|Stripe, Inc.|Stripe, Inc.|2010|A band of color vs. payments.
+Square|business|Square (geometry)|Square|ancient|Block, Inc.|Block, Inc.|2009|Four equal sides vs. Jack Dorsey's card reader.
+Plaid|business|Tartan|Tartan|ancient|Plaid Inc.|Plaid Inc.|2013|Scottish cloth vs. bank-data APIs.
+Robinhood|business|Robin Hood|Robin Hood|1300s|Robinhood Markets|Robinhood Markets|2013|Steal from the rich vs. commission-free trading.
+Coinbase|business|Coin|Coin|ancient|Coinbase|Coinbase|2012|Metal money vs. a crypto exchange.
+Palantir|business|Palantír|Palantír|1954|Palantir Technologies|Palantir Technologies|2003|Tolkien's seeing-stones vs. Peter Thiel's data firm.
+Anduril|business|Andúril|Narsil|1954|Anduril Industries|Anduril Industries|2017|Aragorn's sword vs. Palmer Luckey's defense company.
+Sequoia|business|Sequoia (tree)|Sequoioideae|ancient|Sequoia Capital|Sequoia Capital|1972|The giant redwoods vs. the venture firm.
+Oracle|business|Oracle (prophecy)|Oracle|ancient|Oracle Corporation|Oracle Corporation|1977|Delphi vs. Larry Ellison.
+Nvidia|business|Invidia (envy)|Invidia|ancient|Nvidia|Nvidia|1993|Latin "invidia" — envy — vs. the GPU giant.
+Intel|business|Intelligence (information)|Military intelligence|1900s|Intel|Intel|1968|Spy intel vs. integrated electronics.
+Meme|internet|Meme (Dawkins)|Meme|1976|Internet meme|Internet meme|1990s|The Selfish Gene vs. image macros.
+Troll|internet|Troll (folklore)|Troll|ancient|Internet troll|Internet troll|1990s|Norse monsters vs. comment sections.
+Viral|internet|Viral (infection)|Virus|1890s|Viral phenomenon|Viral phenomenon|1990s|Spreading disease vs. spreading content.
+Catfish|internet|Catfish|Catfish|ancient|Catfishing|Catfishing|2010|A whiskered fish vs. a fake online identity.
+Ghosting|internet|Ghost|Ghost|ancient|Ghosting (behavior)|Ghosting (behavior)|2010s|Spirits vs. vanishing from a relationship.
+Stan|internet|Stan (given name)|Stan|ancient|Stan (fan)|Stan (song)|2000|Eminem's song turned a name into a verb.
+Cloud|internet|Cloud|Cloud|ancient|Cloud computing|Cloud computing|2006|Water vapor vs. someone else's computer.
+Tweet|internet|Bird song|Bird vocalization|ancient|Tweet (social media)|Twitter|2006|What birds do vs. what posters did.
+Thread|internet|Thread (sewing)|Thread (yarn)|ancient|Threads (social network)|Threads (social network)|2023|Sewing vs. Meta's Twitter rival.
+Mastodon|internet|Mastodon (animal)|Mastodon|ancient|Mastodon (social network)|Mastodon (social network)|2016|Ice-age elephant relative vs. the fediverse.
+Bluesky|internet|Blue sky|Diffuse sky radiation|ancient|Bluesky|Bluesky|2019|Rayleigh scattering vs. the AT Protocol network.
+Discord|internet|Discord|Eris (mythology)|ancient|Discord|Discord|2015|Strife vs. gamer chat.
+Signal|internet|Signal|Signal|ancient|Signal (software)|Signal (software)|2014|A sign vs. encrypted messaging.
+Telegram|internet|Telegraphy|Telegraphy|1830s|Telegram (software)|Telegram (software)|2013|Western Union vs. Pavel Durov.
+Medium|internet|Mediumship|Mediumship|1800s|Medium (website)|Medium (website)|2012|Talking to spirits vs. blogging.
+Ghost|internet|Ghost|Ghost|ancient|Ghost (blogging platform)|Ghost (blogging platform)|2013|Spirits vs. publishing software.
+Substack|internet|Substack (stack)|Stack (abstract data type)|1970s|Substack|Substack|2017|A partial stack vs. the newsletter platform.
+Reels|internet|Fishing reel|Fishing reel|ancient|Instagram Reels|Instagram|2020|Fishing gear vs. short video.
+Stories|internet|Narrative|Narrative|ancient|Stories (social media)|Instagram|2016|Storytelling vs. 24-hour posts.
+Influencer|internet|Social influence|Social influence|1600s|Influencer marketing|Influencer marketing|2000s|Persuasion vs. sponsored posts.
+Feed|internet|Animal feed|Fodder|ancient|News feed|News feed|2006|Livestock fodder vs. the algorithmic timeline.
+Handle|internet|Handle (grip)|Handle (grip)|ancient|User handle|User (computing)|1970s|A grip vs. a username.
+Avatar|internet|Avatar (Hinduism)|Avatar|ancient|Avatar (computing)|Avatar (computing)|1985|A Hindu deity's incarnation vs. a profile picture.
+Emoji|internet|Emoji|Emoji|1999|Emoji (film)|The Emoji Movie|2017|Shigetaka Kurita's icons vs. the movie nobody asked for.
+Wiki|internet|Wiki Wiki Shuttle|Wiki Wiki Shuttle|1960s|Wiki|Wiki|1995|Ward Cunningham named it after the Honolulu airport bus.
+Spotify|internet|Spot (identify)|Spot|ancient|Spotify|Spotify|2006|To spot and identify vs. streaming.
+Steam|internet|Steam|Steam|ancient|Steam (service)|Steam (service)|2003|Water vapor vs. Valve's store.
+Unity|internet|Unity (concept)|Unity|ancient|Unity (game engine)|Unity (game engine)|2005|Oneness vs. game development.
+Godot|internet|Waiting for Godot|Waiting for Godot|1953|Godot (game engine)|Godot (game engine)|2014|Beckett's absurdist play vs. the open-source engine.
+Halo|internet|Halo (religious iconography)|Halo (iconography)|ancient|Halo (franchise)|Halo (franchise)|2001|Saints' glow vs. Master Chief.
+Fortnite|internet|Fortnight|Fortnight|ancient|Fortnite|Fortnite|2017|Two weeks vs. Epic's battle royale.
+Portal|internet|Portal (architecture)|Portal (architecture)|ancient|Portal (video game)|Portal (video game)|2007|A grand entrance vs. Valve's puzzle game.
+Minecraft|internet|Mining craft|Mining|ancient|Minecraft|Minecraft|2009|Digging vs. the best-selling game ever.
+Big Bang|science|Big Bang|Big Bang|1927|The Big Bang Theory|The Big Bang Theory|2007|Lemaître's cosmology vs. the CBS sitcom.
+Entropy|science|Entropy (thermodynamics)|Entropy|1865|Entropy (information theory)|Entropy (information theory)|1948|Clausius vs. Shannon.
+Quantum|science|Quantum mechanics|Quantum mechanics|1900|Quantum computing|Quantum computing|1980|Planck vs. qubits.
+Gravity|science|Gravity|Gravity|1687|Gravity (film)|Gravity (2013 film)|2013|Newton vs. Sandra Bullock.
+Cell|science|Cell (biology)|Cell (biology)|1665|Mobile phone|Mobile phone|1973|Robert Hooke's cork vs. your cellphone.
+Plasma|science|Blood plasma|Blood plasma|1800s|Plasma (physics)|Plasma (physics)|1928|Langmuir borrowed the word from blood.
+Mole|science|Mole (animal)|Mole (animal)|ancient|Mole (unit)|Mole (unit)|1894|A burrowing mammal vs. 6.022×10²³.
+Mercury|science|Mercury (mythology)|Mercury (mythology)|ancient|Mercury (planet)|Mercury (planet)|ancient|The messenger god gave his name to a planet and an element.
+Mars|science|Mars (mythology)|Mars (mythology)|ancient|Mars (planet)|Mars|ancient|The god of war vs. the red planet.
+Venus|science|Venus (mythology)|Venus (mythology)|ancient|Venus (planet)|Venus|ancient|The goddess vs. the hottest planet.
+Pluto|science|Pluto (mythology)|Pluto (mythology)|ancient|Pluto (dwarf planet)|Pluto|1930|An 11-year-old named it; Disney's dog came later.
+Saturn|science|Saturn (mythology)|Saturn (mythology)|ancient|Saturn (planet)|Saturn|ancient|The Roman god vs. the ringed planet.
+Neptune|science|Neptune (mythology)|Neptune (mythology)|ancient|Neptune (planet)|Neptune|1846|The sea god vs. the ice giant.
+Apollo|science|Apollo (god)|Apollo|ancient|Apollo program|Apollo program|1961|The sun god vs. the Moon landings.
+Artemis|science|Artemis (goddess)|Artemis|ancient|Artemis program|Artemis program|2017|Apollo's twin sister vs. NASA's return to the Moon.
+Falcon|science|Falcon (bird)|Falcon|ancient|Falcon 9|Falcon 9|2010|The fastest bird vs. SpaceX's workhorse.
+Dragon|science|Dragon (mythology)|Dragon|ancient|SpaceX Dragon|SpaceX Dragon|2010|Fire-breathing beasts vs. crew capsules.
+Starship|science|Starship (science fiction)|Starship|1930s|SpaceX Starship|SpaceX Starship|2019|Sci-fi vessels vs. the largest rocket ever flown.
+Atlas|science|Atlas (mythology)|Atlas (mythology)|ancient|Atlas (robot)|Atlas (robot)|2013|The titan who holds up the sky vs. Boston Dynamics.
+Hubble|science|Edwin Hubble|Edwin Hubble|1889|Hubble Space Telescope|Hubble Space Telescope|1990|The astronomer vs. the telescope.
+Webb|science|James E. Webb|James E. Webb|1906|James Webb Space Telescope|James Webb Space Telescope|2021|The NASA administrator vs. the telescope.
+Corona|science|Corona (sun)|Stellar corona|ancient|Coronavirus|Coronavirus|1968|The sun's crown vs. the virus family.
+Delta|science|Delta (letter)|Delta (letter)|ancient|SARS-CoV-2 Delta variant|SARS-CoV-2 Delta variant|2021|The Greek letter vs. the COVID variant.
+Omicron|science|Omicron (letter)|Omicron|ancient|SARS-CoV-2 Omicron variant|SARS-CoV-2 Omicron variant|2021|The 15th Greek letter vs. the 2021 variant.
+CRISPR|science|CRISPR (bacterial immunity)|CRISPR|1987|CRISPR gene editing|CRISPR gene editing|2012|A bacterial defense system vs. Doudna and Charpentier.
+Ozempic|science|Semaglutide|Semaglutide|2012|Ozempic face|Ozempic face|2023|A diabetes drug vs. a cultural phenomenon.
+Oppenheimer|science|J. Robert Oppenheimer|J. Robert Oppenheimer|1904|Oppenheimer (film)|Oppenheimer (film)|2023|The physicist vs. Christopher Nolan's film.
+Barbie|media|Barbie (doll)|Barbie|1959|Barbie (film)|Barbie (film)|2023|Mattel's doll vs. Greta Gerwig's film.
+Avatar|media|Avatar (Hinduism)|Avatar|ancient|Avatar (film)|Avatar (2009 film)|2009|Divine incarnation vs. James Cameron.
+Matrix|media|Matrix (mathematics)|Matrix (mathematics)|1850|The Matrix|The Matrix|1999|Sylvester's arrays vs. red pill, blue pill.
+Inception|media|Inception (beginning)|Origin|ancient|Inception|Inception|2010|A beginning vs. Christopher Nolan's dream heist.
+Dune|media|Dune|Dune|ancient|Dune (novel)|Dune (novel)|1965|Sand hills vs. Frank Herbert's Arrakis.
+Foundation|media|Foundation (engineering)|Foundation (engineering)|ancient|Foundation (Asimov)|Foundation (Isaac Asimov novel)|1951|Load-bearing concrete vs. Asimov's psychohistory.
+Severance|media|Severance (pay)|Severance package|1900s|Severance (TV series)|Severance (TV series)|2022|Severance pay vs. Apple TV+'s Lumon.
+Succession|media|Order of succession|Order of succession|ancient|Succession (TV series)|Succession (TV series)|2018|Royal lines vs. the Roys.
+Euphoria|media|Euphoria|Euphoria|ancient|Euphoria (American TV series)|Euphoria (American TV series)|2019|Intense happiness vs. HBO's teen drama.
+Wednesday|media|Wednesday|Wednesday|ancient|Wednesday (TV series)|Wednesday (TV series)|2022|Midweek vs. Wednesday Addams.
+Squid Game|media|Squid (game)|Squid (game)|1970s|Squid Game|Squid Game|2021|A Korean children's game vs. Netflix's biggest show.
+Friends|media|Friendship|Friendship|ancient|Friends|Friends|1994|Friendship vs. Central Perk.
+Lost|media|Lost (emotion)|Loss|ancient|Lost (TV series)|Lost (2004 TV series)|2004|Being lost vs. the island.
+Prime|media|Prime number|Prime number|ancient|Amazon Prime|Amazon Prime|2005|Euclid vs. two-day shipping.
+Disney|media|Walt Disney|Walt Disney|1901|Disney+|Disney+|2019|The man vs. the streaming service.
+Hulu|media|Hulu (Mandarin gourd)|Calabash|ancient|Hulu|Hulu|2007|A Chinese bottle gourd vs. streaming.
+Vine|media|Vine (plant)|Vine|ancient|Vine (service)|Vine (service)|2013|Grapevines vs. six-second videos.
+Ring|media|Ring (jewellery)|Ring (jewellery)|ancient|Ring (company)|Ring LLC|2013|A wedding band vs. the doorbell camera.
+Nest|media|Bird nest|Bird nest|ancient|Google Nest|Google Nest|2010|Twigs vs. the smart thermostat.
+Alexa|media|Alexa (name)|Alexa (given name)|ancient|Amazon Alexa|Amazon Alexa|2014|A common name that parents stopped picking.
+Siri|media|Siri (name)|Siri (given name)|ancient|Siri|Siri|2011|A Norwegian name vs. Apple's assistant.
+Cortana|media|Cortana (Halo)|Cortana (Halo)|2001|Cortana (virtual assistant)|Cortana (virtual assistant)|2014|Halo's AI became Windows' AI.
+Prometheus|infra|Prometheus|Prometheus|ancient|Prometheus (software)|Prometheus (software)|2012|The titan who stole fire vs. metrics monitoring.
+Terraform|infra|Terraforming|Terraforming|1942|Terraform (software)|Terraform (software)|2014|Making Mars habitable vs. infrastructure as code.
+Ansible|infra|Ansible (science fiction)|Ansible|1966|Ansible (software)|Ansible (software)|2012|Ursula K. Le Guin's FTL communicator vs. Red Hat automation.
+Puppet|infra|Puppet|Puppet|ancient|Puppet (software)|Puppet (software)|2005|Marionettes vs. configuration management.
+Chef|infra|Chef|Chef|ancient|Chef (software)|Progress Chef|2009|A cook vs. infrastructure recipes.
+Helm|infra|Helm (watercraft)|Tiller|ancient|Helm (package manager)|Kubernetes|2015|A ship's wheel vs. Kubernetes charts.
+Vault|infra|Bank vault|Bank vault|ancient|HashiCorp Vault|HashiCorp|2015|A safe vs. secrets management.
+Jaeger|infra|Jäger (hunter)|Jäger (military)|ancient|Jaeger (software)|Jaeger (software)|2016|German hunter vs. Uber's tracing system.
+Redshift|infra|Redshift (astronomy)|Redshift|1912|Amazon Redshift|Amazon Redshift|2012|Hubble's expanding universe vs. AWS's warehouse.
+Aurora|infra|Aurora (astronomy)|Aurora|ancient|Amazon Aurora|Amazon Aurora|2014|The northern lights vs. AWS's database.
+Bedrock|infra|Bedrock|Bedrock|ancient|Amazon Bedrock|Amazon Web Services|2023|Solid rock vs. AWS's model hub.
+Azure|infra|Azure (color)|Azure (color)|ancient|Microsoft Azure|Microsoft Azure|2010|Sky blue vs. Microsoft's cloud.
+Spanner|infra|Wrench|Wrench|ancient|Spanner (database)|Spanner (database)|2012|A British wrench vs. Google's database.
+Borg|infra|Borg (Star Trek)|Borg|1989|Borg (cluster manager)|Borg (cluster manager)|2003|Resistance is futile vs. Kubernetes' ancestor.
+Zookeeper|infra|Zookeeper|Zookeeper|1800s|Apache ZooKeeper|Apache ZooKeeper|2008|Animal keeper vs. distributed coordination.
+Airflow|infra|Airflow|Airflow|ancient|Apache Airflow|Apache Airflow|2014|Moving air vs. Airbnb's DAG scheduler.
+Celery|infra|Celery|Celery|ancient|Celery (software)|Celery (software)|2009|A vegetable vs. a task queue.
+Warehouse|infra|Warehouse|Warehouse|ancient|Data warehouse|Data warehouse|1980s|Storage buildings vs. analytics.
+Lake|infra|Lake|Lake|ancient|Data lake|Data lake|2010|A body of water vs. James Dixon's metaphor.
+Edge|infra|Edge (geometry)|Edge (geometry)|ancient|Edge computing|Edge computing|2010s|A boundary vs. compute near users.
+Bandwidth|infra|Bandwidth (signal processing)|Bandwidth (signal processing)|1930s|Bandwidth (personal capacity)|Bandwidth (computing)|2000s|Hertz vs. "I don't have the bandwidth."
+Latency|infra|Latency (biology)|Virus latency|1800s|Latency (engineering)|Latency (engineering)|1960s|Dormant viruses vs. milliseconds.
+Ping|infra|Ping (sonar)|Sonar|1940s|Ping (networking utility)|Ping (networking utility)|1983|Submarine sonar gave Mike Muuss the name.
+Cloudflare|infra|Solar flare|Solar flare|1859|Cloudflare|Cloudflare|2009|Carrington event vs. CDN.
+Kaggle|infra|Gaggle|Gaggle|ancient|Kaggle|Kaggle|2010|A flock of geese vs. data-science competitions.
+Hugging Face|infra|Hugging face emoji|Emoji|2015|Hugging Face|Hugging Face|2016|The 🤗 emoji vs. the model hub.
+PR|business|Public relations|Public relations|1900s|Pull request|Distributed version control|2008|Press releases vs. code review.
+PM|business|Prime minister|Prime minister|1700s|Product manager|Product manager|1931|Downing Street vs. the roadmap.
+VC|business|Viet Cong|Viet Cong|1956|Venture capital|Venture capital|1946|Vietnam War vs. Sand Hill Road.
+PE|business|Physical education|Physical education|1800s|Private equity|Private equity|1970s|Gym class vs. leveraged buyouts.
+CS|business|Counter-Strike|Counter-Strike|1999|Computer science|Computer science|1956|Dust II vs. the degree.
+IP|business|Intellectual property|Intellectual property|1700s|Internet Protocol|Internet Protocol|1974|Patents vs. packets.
+API|business|Active pharmaceutical ingredient|Active ingredient|1900s|API|API|1960s|Drug chemistry vs. software interfaces.
+IPO|business|Input–process–output|IPO model|1950s|Initial public offering|Initial public offering|1600s|Systems analysis vs. going public.
+ROI|business|Region of interest|Region of interest|1970s|Return on investment|Return on investment|1900s|Image analysis vs. finance.
+SaaS|business|Sass (stylesheet)|Sass (style sheet language)|2006|Software as a service|Software as a service|2001|A CSS preprocessor vs. subscription software.
+SEO|business|Seo (Korean surname)|Seo (Korean surname)|ancient|Search engine optimization|Search engine optimization|1997|A Korean family name vs. ranking on Google.
+OKR|business|Okra|Okra|ancient|OKR|OKR|1970s|A vegetable abbreviation vs. Andy Grove's goals.
+Hackathon|business|Hacker (MIT)|Hacker culture|1950s|Hackathon|Hackathon|1999|Hackers vs. weekend build sprints.
+Noon|internet|Noon|Noon|ancient|HackerNoon|HackerNoon|2016|Midday vs. how hackers start their day.
