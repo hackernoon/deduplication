@@ -127,7 +127,7 @@ function page({ root, title, desc, canonical, body, data, ld, type = 'website', 
   const img = `${SITE}/${ogFor(canonical)}`, url = `${SITE}/${canonical}`;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${url}">
-<meta name="theme-color" content="#141515"><link rel="icon" href="${FAVICON}">
+<meta name="theme-color" content="#141515"><script defer src="/_vercel/insights/script.js"></script><link rel="icon" href="${FAVICON}">
 <meta property="og:type" content="${type}"><meta property="og:url" content="${url}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:site_name" content="deduplication.tech">
 <meta property="og:image" content="${img}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(imgAlt || title)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@hackernoon"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${img}">
@@ -262,11 +262,12 @@ function privacyPage() {
   const updated = 'October 29, 2026';
   const body = `<main class="wrap prose" style="padding-block:28px"><h1 style="font:900 56px/1 var(--display);text-transform:uppercase">Privacy</h1>
 <p class="muted">Last updated ${updated}</p>
-<p>deduplication.tech (the "Site") is published by ArtMap, Inc., doing business as HackerNoon ("HackerNoon," "we," "us"). This page explains what happens to information when you visit the Site. The short version: the Site has no accounts, no ads, no tracking cookies and no forms, and we don't sell or share personal information.</p>
+<p>deduplication.tech (the "Site") is published by ArtMap, Inc., doing business as HackerNoon ("HackerNoon," "we," "us"). This page explains what happens to information when you visit the Site. The short version: the Site has no accounts, no ads, no tracking cookies and no forms, and it counts visits only in aggregate, and we don't sell or share personal information.</p>
 <h2>1. What we collect</h2>
 <p><b>Nothing you type in.</b> The Site has no sign-up, login, comments or contact forms. Searching for a term runs entirely in your browser; your searches aren't sent to us.</p>
 <p><b>Server logs.</b> The Site is hosted on <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel</a>. Like any web host, Vercel automatically processes technical request data such as your IP address, browser type, the page requested and the time of the request, to deliver pages, keep the service secure and diagnose errors. We use this only in aggregate, to keep the Site running.</p>
-<p><b>Cookies.</b> We don't set cookies for tracking, advertising or analytics. If we add privacy-friendly, cookie-free traffic statistics in the future, we'll list them here.</p>
+<p><b>Traffic statistics.</b> We use <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener">Vercel Web Analytics</a> to count page views, referrers, countries and device types in aggregate. It sets no cookies and doesn't identify or track individual visitors across sites.</p>
+<p><b>Cookies.</b> We don't set cookies for tracking, advertising or analytics.</p>
 <h2>2. Third parties your browser talks to</h2>
 <p>Some pages load resources from other services, which receive your IP address and browser details as part of the request:</p>
 <ul>
