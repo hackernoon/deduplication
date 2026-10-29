@@ -59,8 +59,14 @@ async function fillDefs() {
     for (let i = 0; i < titles.length; i += 20) {
       const batch = titles.slice(i, i + 20);
       const q = new URLSearchParams({ action: 'query', format: 'json', redirects: '1', prop: 'extracts', exintro: '1', explaintext: '1', exsentences: '2', exlimit: '20', titles: batch.join('|') });
-      const r = await fetch('https://en.wikipedia.org/w/api.php?' + q, { headers: { 'User-Agent': 'deduplication.tech build (HackerNoon)' }, signal: AbortSignal.timeout(10000) });
+      let r;
+      for (let attempt = 0; attempt < 5; attempt++) {
+        r = await fetch('https://en.wikipedia.org/w/api.php?' + q, { headers: { 'User-Agent': 'deduplication.tech build (https://deduplication.tech; HackerNoon)' }, signal: AbortSignal.timeout(10000) });
+        if (r.status !== 429 && r.status < 500) break;
+        await new Promise(res => setTimeout(res, 2000 * (attempt + 1)));
+      }
       if (!r.ok) throw new Error('wiki ' + r.status);
+      await new Promise(res => setTimeout(res, 300));
       const j = await r.json(), map = {};
       batch.forEach(t => map[t] = t);
       for (const k of ['normalized', 'redirects']) (j.query?.[k] || []).forEach(n => { for (const t in map) if (map[t] === n.from) map[t] = n.to; });
