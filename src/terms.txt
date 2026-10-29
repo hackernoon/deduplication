@@ -209,7 +209,6 @@ Stripe|business|Stripe (pattern)|Stripe (pattern)|ancient|Stripe, Inc.|Stripe, I
 Square|business|Square (geometry)|Square|ancient|Block, Inc.|Block, Inc.|2009|Four equal sides vs. Jack Dorsey's card reader.
 Plaid|business|Tartan|Tartan|ancient|Plaid Inc.|Plaid Inc.|2013|Scottish cloth vs. bank-data APIs.
 Robinhood|business|Robin Hood|Robin Hood|1300s|Robinhood Markets|Robinhood Markets|2013|Steal from the rich vs. commission-free trading.
-Coinbase|business|Coin|Coin|ancient|Coinbase|Coinbase|2012|Metal money vs. a crypto exchange.
 Palantir|business|Palantír|Palantír|1954|Palantir Technologies|Palantir Technologies|2003|Tolkien's seeing-stones vs. Peter Thiel's data firm.
 Anduril|business|Andúril|Narsil|1954|Anduril Industries|Anduril Industries|2017|Aragorn's sword vs. Palmer Luckey's defense company.
 Sequoia|business|Sequoia (tree)|Sequoioideae|ancient|Sequoia Capital|Sequoia Capital|1972|The giant redwoods vs. the venture firm.

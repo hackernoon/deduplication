@@ -205,3 +205,49 @@ footer a.fb{font-weight:700;color:var(--green);text-decoration:none}footer a.fb:
 .key .sz{color:var(--mut)}
 .swatches{display:grid;gap:12px;margin:16px 0}.sw{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}.sw i{width:44px;height:44px;border:1px solid var(--rule)}.sw b{display:block;font:600 14px var(--mono)}.sw span{color:var(--mut);font-size:14px}
 .verdict .cell b.st.a{color:var(--sa)}.verdict .cell b.st.b{color:var(--green)}.verdict .cell b.st.c{color:var(--amber)}
+
+footer.fat{padding-block:36px 28px;border-top:1px solid var(--rule);margin-top:40px}
+footer.fat .fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:28px 24px}
+footer.fat h4{margin:0 0 8px;font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+footer.fat h4 a{color:var(--fg);text-decoration:none}footer.fat h4 a:hover{color:var(--green)}
+footer.fat h4 .n{color:var(--mut);font-weight:400}
+footer.fat ul{list-style:none;margin:0;padding:0}
+footer.fat li{margin:3px 0;font:12px var(--mono)}
+footer.fat li a{color:var(--paper,var(--fg));text-decoration:none}footer.fat li a:hover{color:var(--green);text-decoration:underline}
+footer.fat .fmore{margin-top:6px;background:none;border:1px solid var(--rule);color:var(--fg);font:11px var(--mono);padding:3px 8px;cursor:pointer}
+footer.fat .fmore:hover{border-color:var(--green);color:var(--green)}
+footer.fat .fnote{margin:28px 0 0;padding-top:16px;border-top:1px solid var(--rule);line-height:1.6}
+footer.fat li a i{font-style:normal;color:var(--mut)}
+.about .lede{font-size:19px;line-height:1.5;max-width:46em}
+figure.art{margin:28px 0 34px}
+svg.wordart{width:100%;height:auto;display:block;font-family:var(--mono);letter-spacing:0}
+svg.wordart text{white-space:pre}
+.wa-a{fill:var(--sa)}.wa-a2{fill:#8e908b}.wa-b{fill:var(--green)}.wa-c{fill:var(--amber)}.wa-n{fill:#5d605c}
+.wa-la,.wa-lb{fill:none;stroke-width:2}.wa-la{stroke:var(--sa)}.wa-lb{stroke:var(--green)}
+.wa-cross{stroke:var(--fg);stroke-dasharray:3 4;opacity:.6}
+.wa-note,.wa-tick,.wa-cap{fill:var(--mut);font-size:12px}.wa-cap{font-size:14px;fill:var(--fg);text-transform:uppercase;letter-spacing:.08em}
+.wa-arrow line,.wa-arrow path{stroke:var(--fg);stroke-width:2;fill:none}
+figure.art figcaption{margin-top:10px;color:var(--mut);font:12px/1.6 var(--mono)}
+.k{font-weight:600}.k.a{color:var(--sa)}.k.b{color:var(--green)}.k.c{color:var(--amber)}
+blockquote.quote{margin:40px 0;padding:24px 28px;border-left:4px solid var(--green);background:rgba(255,255,255,.03)}
+blockquote.quote p{font:600 22px/1.45 var(--sans,inherit);margin:0 0 12px}
+blockquote.quote cite{font:12px var(--mono);color:var(--mut);font-style:normal}
+svg.typed{font-family:'Courier Prime','Courier New',Courier,monospace;border-radius:2px;box-shadow:0 1px 0 rgba(255,255,255,.04),0 10px 30px rgba(0,0,0,.35)}
+svg.typed .paper{fill:#f2efe6}
+svg.typed .ik{fill:#1b1a17}svg.typed .ig{fill:#0f7a36}svg.typed .ia{fill:#b26a00}
+blockquote.quote cite a{color:var(--fg)}
+/* dark sheet: ink blends into the page */
+svg.typed{box-shadow:none}
+svg.typed .paper{fill:var(--ink)}
+svg.typed .ik{fill:#d9d6cc}svg.typed .ig{fill:#00e85b}svg.typed .ia{fill:#ffb300}
+a.xlink{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:baseline;margin:18px 0 26px;padding:16px 20px;border:1px solid var(--green);border-left-width:5px;text-decoration:none;color:var(--fg);background:rgba(0,232,91,.05);max-width:760px}
+a.xlink span{grid-column:1/-1;font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--green)}
+a.xlink b{font:800 26px/1.1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+a.xlink i{grid-column:1/-1;font:12px var(--mono);font-style:normal;color:var(--mut)}
+a.xlink:hover{background:rgba(0,232,91,.12)}a.xlink:hover b{color:var(--green)}
+aside.hnlinks{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin:0 0 18px;padding:12px 16px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font:12px var(--mono);color:var(--mut)}
+aside.hnlinks .hl{text-transform:uppercase;letter-spacing:.08em;font-size:11px}
+aside.hnlinks a{color:var(--fg);text-decoration:none;border-bottom:1px dotted var(--rule)}
+aside.hnlinks a:hover{color:var(--green);border-bottom-color:var(--green)}
+aside.hnlinks a.tag{color:var(--green)}
+aside.hnlinks a{text-transform:none;letter-spacing:0}
