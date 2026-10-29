@@ -41,6 +41,37 @@ for (const l of rows) {
 if (process.argv.includes('--terms-jsonl')) { const out = process.argv[process.argv.indexOf('--terms-jsonl') + 1]; fs.writeFileSync(out, terms.map(t => JSON.stringify({ key: t.url.replace(/^term\//,'').replace(/\/$/,''), term: t.term, cat: t.cat, a: { label: t.A.label, def: t.A.def || t.A.label }, b: { label: t.B.label, def: t.B.def || t.B.label } })).join('\n') + '\n'); console.log('terms.jsonl:', terms.length); process.exit(0); }
 if (process.argv.includes('--jobs')) { fs.writeFileSync(new URL('./jobs.json', import.meta.url).pathname, JSON.stringify(terms.map(t => [t.url.replace(/^term\//,'').replace(/\/$/,''), t.A.q, t.B.q, t.A.wiki, t.B.wiki]))); console.log('jobs written'); process.exit(0); }
 // baked evidence (Wikipedia pageviews, collected in a real browser)
+// ---------- definitions: fill any missing ones from Wikipedia's lead sentence at build time ----------
+// Runs on Vercel (which has internet). Offline or on failure, the page falls back to loading it in the browser.
+async function fillDefs() {
+  if (process.env.SKIP_WIKI) return;
+  const need = new Map();
+  for (const t of terms) for (const s of [t.A, t.B]) if (!s.def && s.wiki) need.set(s.wiki, null);
+  const titles = [...need.keys()];
+  const clean = x => {
+    let d = (x || '').replace(/\s*\([^()]*(?:\([^()]*\)[^()]*)*\)/g, '').replace(/\s+/g, ' ').replace(/ ,/g, ',').trim();
+    const m = d.match(/^(.{40,}?[a-z0-9\)\]"'’])\.(\s|$)/i); if (m) d = m[1] + '.';
+    if (d.length > 230) d = d.slice(0, 227).replace(/\s+\S*$/, '') + '…';
+    return d;
+  };
+  let ok = 0;
+  try {
+    for (let i = 0; i < titles.length; i += 20) {
+      const batch = titles.slice(i, i + 20);
+      const q = new URLSearchParams({ action: 'query', format: 'json', redirects: '1', prop: 'extracts', exintro: '1', explaintext: '1', exsentences: '2', exlimit: '20', titles: batch.join('|') });
+      const r = await fetch('https://en.wikipedia.org/w/api.php?' + q, { headers: { 'User-Agent': 'deduplication.tech build (HackerNoon)' }, signal: AbortSignal.timeout(10000) });
+      if (!r.ok) throw new Error('wiki ' + r.status);
+      const j = await r.json(), map = {};
+      batch.forEach(t => map[t] = t);
+      for (const k of ['normalized', 'redirects']) (j.query?.[k] || []).forEach(n => { for (const t in map) if (map[t] === n.from) map[t] = n.to; });
+      const pages = {}; Object.values(j.query?.pages || {}).forEach(p => pages[p.title] = p);
+      for (const t of batch) { const p = pages[map[t]]; if (p && p.extract && !/may refer to/i.test(p.extract)) { need.set(t, clean(p.extract)); ok++; } }
+    }
+  } catch (e) { console.log('definitions: Wikipedia unavailable (' + e.message + '), using browser fallback'); }
+  for (const t of terms) for (const s of [t.A, t.B]) if (!s.def && need.get(s.wiki)) { s.def = need.get(s.wiki); s.defSrc = 'wikipedia'; }
+  console.log('definitions from Wikipedia:', ok, 'of', titles.length);
+}
+await fillDefs();
 const HN_TAGS = new Set(fs.existsSync(SRC + 'hn-tags.json') ? JSON.parse(fs.readFileSync(SRC + 'hn-tags.json', 'utf8')) : []);
 const tagSlug = x => x.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/\(.*?\)/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const BAKED = fs.existsSync(SRC + 'data.json') ? JSON.parse(fs.readFileSync(SRC + 'data.json', 'utf8')) : {};
@@ -60,6 +91,11 @@ terms.forEach(t => {
 console.log('baked', terms.filter(t => t.data).length);
 if (LIMIT) terms = terms.slice(0, LIMIT);
 const href = (u) => EXPLICIT ? u + 'index.html' : u;
+if (process.argv.includes('--cards')) {
+  const out = process.argv[process.argv.indexOf('--cards') + 1];
+  const list = terms.map(t => ({ path: t.url.replace(/\/$/, ''), term: t.term, a: t.A.label, b: t.B.label, cat: CATS[t.cat] || '', share: (() => { const d = BAKED[t.url.replace(/^term\//, '').replace(/\/$/, '')]; const w = d && d.wp; if (!w || w.ta === w.tb || w.a12 == null || w.b12 == null || !(w.a12 + w.b12)) return null; const s = w.b12 / (w.a12 + w.b12); return s < .015 || s > .985 ? null : s; })() }));
+  fs.writeFileSync(out, JSON.stringify(list)); console.log('cards:', list.length); process.exit(0);
+}
 const index = terms.map(t => ({ t: t.term, a: t.A.label, b: t.B.label, u: href(t.url), wa: t.A.wiki, wb: t.B.wiki, c: t.cat, s: t.data?.share ?? null, w: t.data?.w ?? null }));
 console.log('terms', terms.length);
 const pop = t => t.data ? ((t.data.w || 0) || ((t.data.tr && (t.data.tr.la + t.data.tr.lb)) || 0)) : 0;
@@ -80,11 +116,22 @@ function fatFooter(root) {
 
 // ---------- layout ----------
 const fonts = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Courier+Prime:wght@400;700&family=IBM+Plex+Sans:wght@400;600&display=swap">';
-function page({ root, title, desc, canonical, body, data }) {
+function ogFor(canonical) {
+  const m = { '': 'home', 'about/': 'about', 'methodology/': 'methodology', 'terms/': 'terms' };
+  const name = canonical.startsWith('term/') ? canonical.replace(/\/$/, '') : m[canonical];
+  return name && fs.existsSync(SRC + 'og/' + name + '.jpg') ? `og/${name}.jpg` : 'og/default.jpg';
+}
+const FAVICON = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="32" height="64" fill="#8e908b"/><rect x="32" width="32" height="64" fill="#1c1d1e"/><text x="32" y="47" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="40" text-anchor="middle" fill="#00e85b">d</text></svg>')}`;
+function page({ root, title, desc, canonical, body, data, ld, type = 'website', imgAlt }) {
   if (PREVIEW) return { title, data, body };
+  const img = `${SITE}/${ogFor(canonical)}`, url = `${SITE}/${canonical}`;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${SITE}/${canonical}">
-<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:site_name" content="deduplication.tech"><meta name="twitter:card" content="summary">
+<title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${url}">
+<meta name="theme-color" content="#141515"><link rel="icon" href="${FAVICON}">
+<meta property="og:type" content="${type}"><meta property="og:url" content="${url}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:site_name" content="deduplication.tech">
+<meta property="og:image" content="${img}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(imgAlt || title)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@hackernoon"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${img}">
+${ld ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>` : ''}
 ${fonts}<link rel="stylesheet" href="${root}assets/app.css">
 <!-- Hack this site: see something wrong or a term we missed? Pitch it as a story at hackernoon.com/new and tag #deduplication -->
 </head><body>
@@ -112,7 +159,9 @@ function termPage(t) {
   const trendsLink = `https://trends.google.com/trends/explore?date=all&q=${encodeURIComponent(t.A.q)},${encodeURIComponent(t.B.q)}`;
   const related = terms.filter(x => x !== t && (x.cat === t.cat || x.ts === t.ts)).sort((a, b) => (b.ts === t.ts) - (a.ts === t.ts)).slice(0, 18);
   const body = `
-<section class="split" aria-label="${esc(t.term)}: two meanings">
+<section class="split${t.data?.share == null ? ' nodata' : t.data.share > .6 ? ' win-b' : t.data.share < .4 ? ' win-a' : ' win-c'}" aria-label="${esc(t.term)}: two meanings" style="--dup:${t.data?.share == null ? 50 : Math.round(t.data.share * 100)}%">
+  <div class="tex a" aria-hidden="true">${esc((t.A.label.replace(/ \(.*\)$/, '') + ' · ').repeat(160))}</div><div class="tex b" aria-hidden="true">${esc((t.B.label.replace(/ \(.*\)$/, '') + ' · ').repeat(160))}</div>
+  ${t.data?.share != null ? `<div class="pct a" aria-hidden="true">${Math.round((1 - t.data.share) * 100)}<i>%</i></div><div class="pct b" aria-hidden="true">${Math.round(t.data.share * 100)}<i>%</i></div><div class="stamp" aria-hidden="true">${t.data.share > .6 ? 'Duplicate owns the word →' : t.data.share < .4 ? '← Original still owns the word' : 'Contested'}</div>` : ''}
   <div class="side a"><span class="tag">Original · left</span><p class="sense">${esc(t.A.label)}</p>${t.A.def ? `<p class="defn">${esc(t.A.def)}</p>` : ''}<span class="year">First in use: ${esc(yearText(t.A.year))}</span></div>
   <div class="term-mark" aria-hidden="true">${esc(t.term)}</div>
   <div class="side b"><span class="tag">Duplicate · right</span><p class="sense">${esc(t.B.label)}</p>${t.B.def ? `<p class="defn">${esc(t.B.def)}</p>` : ''}<span class="year">First in use: ${esc(yearText(t.B.year))}</span></div>
@@ -137,7 +186,16 @@ function termPage(t) {
   <aside class="hnlinks"><span class="hl">On HackerNoon</span><a href="https://hackernoon.com/search?query=${encodeURIComponent(t.term)}" target="_blank" rel="noopener">Search “${esc(t.term)}” stories →</a>${[...new Set([tagSlug(t.term), tagSlug(t.B.label)])].filter(x => HN_TAGS.has(x)).map(x => `<a class="tag" href="https://hackernoon.com/tagged/${x}" target="_blank" rel="noopener">#${x}</a>`).join('')}</aside>
   <section class="panel"><div class="ph"><h2>More duplicated terms</h2><p>${esc(CATS[t.cat] || '')}</p></div><div class="chips">${related.map(x => `<a href="${root}${href(x.url)}">${esc(x.term)} <span style="color:var(--mut)">· ${esc(x.B.label)}</span></a>`).join('')}</div></section>
 </main>`;
-  return page({ root, title: h1, desc: `${t.term}: ${t.A.label} (original) vs ${t.B.label} (duplicate). Wikipedia data on which meaning owns the word.`, canonical: t.url, body, data: { term: { term: t.term, note: t.note, A: t.A, B: t.B, data: t.data } } });
+  const sh = t.data?.share, verdictTxt = sh == null ? 'Which meaning owns the word? Wikipedia data since 2015.' : sh > .6 ? `The duplicate owns the word: ${Math.round(sh * 100)}% of Wikipedia attention.` : sh < .4 ? `The original still owns the word: ${Math.round((1 - sh) * 100)}% of Wikipedia attention.` : `Contested: ${Math.round(sh * 100)}% vs ${Math.round((1 - sh) * 100)}% of Wikipedia attention.`;
+  const ld = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebPage', name: h1, url: `${SITE}/${t.url}`, isPartOf: { '@type': 'WebSite', name: 'deduplication.tech', url: SITE + '/' }, publisher: { '@type': 'Organization', name: 'HackerNoon', url: 'https://hackernoon.com' },
+      about: [{ '@type': 'DefinedTerm', name: `${t.term} (${t.A.label})`, description: t.A.def || undefined, sameAs: t.A.wiki ? 'https://en.wikipedia.org/wiki/' + encodeURIComponent(t.A.wiki.replace(/ /g, '_')) : undefined },
+              { '@type': 'DefinedTerm', name: `${t.term} (${t.B.label})`, description: t.B.def || undefined, sameAs: t.B.wiki ? 'https://en.wikipedia.org/wiki/' + encodeURIComponent(t.B.wiki.replace(/ /g, '_')) : undefined }] },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'deduplication.tech', item: SITE + '/' },
+      { '@type': 'ListItem', position: 2, name: CATS[t.cat] || t.cat, item: `${SITE}/field/${t.cat}/` },
+      { '@type': 'ListItem', position: 3, name: h1, item: `${SITE}/${t.url}` }] }] };
+  return page({ root, title: h1, ld, type: 'article', imgAlt: `${t.term}: ${t.A.label} vs ${t.B.label}. ${verdictTxt}`, desc: `${t.term}: ${t.A.label} (original) vs ${t.B.label} (duplicate). ${verdictTxt}`, canonical: t.url, body, data: { term: { term: t.term, note: t.note, A: t.A, B: t.B, data: t.data } } });
 }
 
 // ---------- home ----------
@@ -154,12 +212,12 @@ function homePage() {
   <section class="panel"><div class="ph"><h2>Leaderboards</h2><p>Duplicate share of the last 30 days of Wikipedia attention</p></div><div id="leaders"><p class="muted">Leaderboards fill in once live pageviews load.</p></div></section>
   <section class="panel"><div class="ph"><h2>Browse by field</h2><p>Top ${MINSHOW} per field by popularity · click a field for the full ranking</p></div><div class="cats">${Object.entries(byCatAll).map(([c, ts]) => `<div class="cat"><h3><a href="${href('field/' + c + '/')}">${esc(CATS[c] || c)} <span class="n">${ts.length}</span></a></h3><ul>${ts.map((t, i) => `<li${i >= MINSHOW ? ' class="more" hidden' : ''}><a href="${href(t.url)}">${esc(t.term)}</a><span>${esc(t.B.label)}</span></li>`).join('')}</ul>${ts.length > MINSHOW ? `<button class="expand" type="button" data-n="${ts.length - MINSHOW}">Show ${ts.length - MINSHOW} more</button>` : ''}</div>`).join('')}</div></section>
 </main>`;
-  return page({ root, title: 'deduplication.tech — which meaning owns the word?', desc: `${terms.length} tech, science and media terms with two competing meanings, measured with Wikipedia pageviews.`, canonical: '', body, data: {} });
+  return page({ root, ld: { '@context': 'https://schema.org', '@type': 'WebSite', name: 'deduplication.tech', alternateName: 'Deduplication Technology', url: SITE + '/', description: 'Words with two competing meanings, measured with Wikipedia attention.', publisher: { '@type': 'Organization', name: 'HackerNoon', url: 'https://hackernoon.com', sameAs: ['https://hackernoon.ai', 'https://hackernoon.cv', 'https://hackernoon.tech'] } }, title: 'deduplication.tech — which meaning owns the word?', desc: `${terms.length} tech, science and media terms with two competing meanings, measured with Wikipedia pageviews.`, canonical: '', body, data: {} });
 }
 function aboutPage() {
   const root = '../';
   const body = aboutBody({ terms, root, href, cats: Object.keys(byCatAll).length });
-  return page({ root, title: 'About Deduplication Technology — deduplication.tech', desc: 'Why HackerNoon built deduplication.tech: measuring language with internet behavior to see which meaning owns a duplicated word.', canonical: 'about/', body, data: {} });
+  return page({ root, title: 'About Deduplication Technology — deduplication.tech', desc: 'Why HackerNoon built deduplication.tech, and how internet behavior shows which meaning owns a word.', canonical: 'about/', body, data: {} });
 }
 function methodologyPage() {
   const root = '../';
@@ -197,7 +255,7 @@ function fieldPage(c) {
   const body = `<section class="home-hero"><div class="a"><h1 style="font-size:clamp(34px,5vw,72px)">${esc((CATS[c] || c).split(' ')[0])}</h1><p>${ts.length} duplicated terms in ${esc(CATS[c] || c)}, ranked by popularity.</p></div><div class="b"><h1 style="font-size:clamp(34px,5vw,72px)">Ranked</h1><p>Popularity = combined English Wikipedia pageviews for both meanings over the last 12 months. Share = the duplicate meaning's slice of those pageviews. Colour: grey = original holds, amber = contested, green = duplicate dominant.</p></div></section>
 <main class="wrap" style="padding-block:24px"><nav class="fieldnav">${nav}</nav>
 <div class="tablewrap"><table class="rank"><thead><tr><th>#</th><th>Term</th><th>Original ▸ duplicate</th><th>Popularity · 12 mo</th><th>Duplicate share</th><th>Status</th></tr></thead><tbody>${rows}</tbody></table></div></main>`;
-  return page({ root, title: `${CATS[c] || c} — duplicated terms ranked — deduplication.tech`, desc: `${ts.length} ${CATS[c] || c} terms with two competing meanings, ranked by popularity.`, canonical: `field/${c}/`, body, data: {} });
+  return page({ root, title: `${CATS[c] || c}: words with two meanings`, desc: `${ts.length} ${CATS[c] || c} terms with two competing meanings, ranked by popularity, with which meaning owns each word.`, canonical: `field/${c}/`, body, data: {} });
 }
 function privacyPage() {
   const root = '../';
@@ -271,7 +329,7 @@ function tosPage() {
 function allPage() {
   const root = '../';
   const body = `<main class="wrap" style="padding-block:28px"><div class="ph"><h2 style="font-size:44px">All ${terms.length} terms</h2><p>Original ▸ duplicate</p></div><div class="cats"><div style="grid-column:1/-1"><ul>${[...terms].sort((a, b) => a.term.localeCompare(b.term)).map(t => `<li><a href="${root}${href(t.url)}">${esc(t.term)}</a><span>${esc(t.A.label)} ▸ ${esc(t.B.label)}</span></li>`).join('')}</ul></div></div></main>`;
-  return page({ root, title: 'All terms — deduplication.tech', desc: 'Every duplicated term tracked on deduplication.tech.', canonical: 'terms/', body, data: {} });
+  return page({ root, title: `All ${terms.length} duplicated terms, A to Z — deduplication.tech`, desc: `Every word with two competing meanings on deduplication.tech, A to Z, with which meaning owns each one.`, canonical: 'terms/', body, data: {} });
 }
 
 // ---------- preview (single-file SPA for the in-app viewer) ----------
@@ -307,7 +365,11 @@ for (const c of Object.keys(byCatAll)) w('field/' + c + '/index.html', fieldPage
 // term-only redirects: /term/python → first pair
 const firsts = {}; terms.forEach(t => firsts[t.ts] ||= t);
 if (!EXPLICIT) for (const [ts, t] of Object.entries(firsts)) w(`term/${ts}/index.html`, `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${t.url.replace('term/' + ts + '/', '')}${EXPLICIT ? 'index.html' : ''}"><link rel="canonical" href="${SITE}/${t.url}"><title>${esc(t.term)}</title>`);
-w('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${SITE}/</loc></url><url><loc>${SITE}/about/</loc></url><url><loc>${SITE}/methodology/</loc></url><url><loc>${SITE}/privacy/</loc></url><url><loc>${SITE}/terms/</loc></url>${terms.map(t => `<url><loc>${SITE}/${t.url}</loc></url>`).join('')}</urlset>`);
+const TODAY = new Date().toISOString().slice(0, 10);
+const smUrl = (u, pr) => `<url><loc>${SITE}/${u}</loc><lastmod>${TODAY}</lastmod><priority>${pr}</priority></url>`;
+w('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${[['', '1.0'], ['about/', '0.6'], ['methodology/', '0.6'], ['terms/', '0.8'], ['privacy/', '0.2'], ['terms-and-conditions/', '0.2']].map(([u, p]) => smUrl(u, p)).join('')}${Object.keys(byCatAll).map(c => smUrl(`field/${c}/`, '0.7')).join('')}${terms.map(t => smUrl(t.url, '0.8')).join('')}</urlset>`);
+// social share cards
+if (fs.existsSync(SRC + 'og')) fs.cpSync(SRC + 'og', OUT + 'og', { recursive: true });
 w('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n# Hack this site: found a duplicated term we missed? Write it up on HackerNoon and tag #deduplication\n`);
 w('vercel.json', JSON.stringify({ cleanUrls: true, trailingSlash: true }, null, 2));
 w('terms.json', JSON.stringify(terms.map(t => ({ term: t.term, category: t.cat, url: SITE + '/' + t.url, original: t.A, duplicate: t.B, note: t.note })), null, 1));
