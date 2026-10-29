@@ -90,9 +90,10 @@
     // leaderboards
     const lb = $('#leaders');
     if (lb && Object.keys(views).length) {
-      const contested = idx.filter(t => t.w > max * 0.002).sort((x, y) => Math.abs(x.share - .5) - Math.abs(y.share - .5)).slice(0, 10);
-      const dupWins = idx.filter(t => t.w > max * 0.002).sort((x, y) => y.share - x.share).slice(0, 10);
-      const origWins = idx.filter(t => t.w > max * 0.002).sort((x, y) => x.share - y.share).slice(0, 10);
+      const scored = idx.filter(t => t.share != null && t.w > max * 0.002);
+      const contested = scored.slice().sort((x, y) => Math.abs(x.share - .5) - Math.abs(y.share - .5)).slice(0, 10);
+      const dupWins = scored.slice().sort((x, y) => y.share - x.share).slice(0, 10);
+      const origWins = scored.slice().sort((x, y) => x.share - y.share).slice(0, 10);
       const row = t => `<a href="${ROOT_()}${t.u}"><span class="tk">${esc(t.t)}</span><span class="bar"><i style="width:${(t.share * 100).toFixed(1)}%"></i></span><span class="pct">${Math.round(t.share * 100)}%</span></a>`;
       lb.innerHTML = `<section><h3>Most contested</h3><p>Closest to a 50/50 split</p>${contested.map(row).join('')}</section>
         <section><h3>Duplicate took over</h3><p>New meaning owns the word</p>${dupWins.map(row).join('')}</section>
@@ -273,7 +274,7 @@
       let wc = null, wdir = null;
       if (!d.wp.same && d.wp.a && d.wp.b) { const sA = ma(A, 2), sB = ma(B, 2); for (let i = 1; i < n; i++) { const d0 = sB[i - 1] - sA[i - 1], d1 = sB[i] - sA[i]; if (Math.sign(d0) !== Math.sign(d1) && d1 !== 0) { wc = i; wdir = d1 > 0 ? 'dup' : 'orig'; } } }
       lineChart($('#chart-pv'), [{ name: T.A.label, values: A, cls: 'sa' }, { name: T.B.label, values: B, cls: 'sb' }], { labels: L, mark: wc, markLabel: wc != null ? (wdir === 'dup' ? 'Duplicate overtakes' : 'Original retakes') + ' · ' + L[wc] : '', aria: 'Wikipedia pageviews per month, quarterly average' });
-      if (share == null && !d.wp.same && d.wp.a12 != null && d.wp.b12 != null && (d.wp.a12 + d.wp.b12)) {
+      if (share == null && !d.wp.same && !d.wp.x && d.wp.a12 != null && d.wp.b12 != null && (d.wp.a12 + d.wp.b12)) {
         share = d.wp.b12 / (d.wp.a12 + d.wp.b12); src = 'Wikipedia'; cross = wc; crossLabel = wc != null ? L[wc] : '';
         const sA = ma(A, 2), sB = ma(B, 2);
         lineChart($('#chart-share'), [{ name: 'Duplicate share %', values: L.map((_, i) => (sA[i] + sB[i]) ? 100 * sB[i] / (sA[i] + sB[i]) : 50), cls: 'sb' }], { labels: L, h: 180, aria: 'Duplicate share of Wikipedia attention' });
@@ -281,6 +282,7 @@
         if (f) drift = Math.round((share - B.slice(0, 4).reduce((x, y) => x + y, 0) / f) * 100);
         const sh = document.querySelector('#chart-share'); if (sh && sh.previousElementSibling) { const h2 = sh.previousElementSibling.querySelector('h2'); if (h2) h2.textContent = "Duplicate's share of Wikipedia attention"; }
       }
+      if (d.wp.x) { const nb = $('#chart-pv'); if (nb) nb.insertAdjacentHTML('beforeend', '<p class="muted" style="margin:8px">One meaning barely registers on Wikipedia, so we don\'t call a winner from pageviews alone. Spoken-usage data will settle it.</p>'); }
       if (d.wp.same) { const nb = $('#chart-pv'); if (nb) nb.insertAdjacentHTML('beforeend', '<p class="muted" style="margin:8px">Both meanings share one Wikipedia article, so pageviews can\'t separate them.</p>'); }
     } else { const h = $('#chart-pv'); if (h) h.innerHTML = '<div class="empty">No Wikipedia article covers ' + (T.A.wiki || T.B.wiki ? 'one of these senses' : 'these senses') + '.</div>'; }
     const yo = (a, b) => b == null ? '—' : fmt(b);

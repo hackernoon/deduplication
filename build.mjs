@@ -51,7 +51,10 @@ terms.forEach(t => {
     if (d.wp && d.wp.ta && d.wp.ta === d.wp.tb) { d.wp.same = 1; }
     const wp = d.wp && !d.wp.same && d.wp.a12 != null && d.wp.b12 != null && (d.wp.a12 + d.wp.b12) ? d.wp.b12 / (d.wp.a12 + d.wp.b12) : null;
     delete d.hn;
-    d.share = tr ?? wp; d.w = d.wp ? (d.wp.a12 || 0) + (d.wp.b12 || 0) : 0;
+    // A near-total split (under 1.5% or over 98.5%) almost always means one meaning's Wikipedia article is tiny or a stand-in,
+    // not that the fight is over. Show "not enough data" until spoken-usage data can confirm it.
+    if (wp != null && (wp < 0.015 || wp > 0.985)) { d.wp.x = 1; }
+    d.share = d.wp && d.wp.x ? null : (tr ?? wp); d.w = d.wp ? (d.wp.a12 || 0) + (d.wp.b12 || 0) : 0;
   }
 });
 console.log('baked', terms.filter(t => t.data).length);
@@ -182,7 +185,7 @@ function methodologyPage() {
 <div class="sw"><i style="background:#5d605c"></i><div><b>Dim grey · not enough data</b><span>We can't separate the meanings yet, usually because there's no Wikipedia article for one side or both sides share one.</span></div></div>
 </div>
 <p><b>Where you see it.</b> On a term page the left half is always grey (original) and the right half black with green (duplicate), whoever is winning. The bar under the hero is the word split by ownership. The "Canonical today" and "Status" boxes take the colour of whichever side wins. In the cloud, word size is popularity (both meanings' Wikipedia views combined) and colour is ownership.</p>
-<h2>Verdicts</h2><p>Over 60% duplicate share: <b>duplicate dominant</b>. Under 40%: <b>original holds</b>. In between: <b>contested</b>. The last 12 months of Wikipedia pageviews decide. When neither source separates the meanings (MTS, for example), the page shows no verdict rather than guess.</p>
+<h2>Verdicts</h2><p>Over 60% duplicate share: <b>duplicate dominant</b>. Under 40%: <b>original holds</b>. In between: <b>contested</b>. The last 12 months of Wikipedia pageviews decide. When neither source separates the meanings (MTS, for example), the page shows no verdict rather than guess. We also hold back a verdict when one side gets under 1.5% of attention: a split that lopsided usually means one meaning's Wikipedia article is tiny or a stand-in, not that the debate is over. Those terms show as not enough data until spoken-usage data can confirm the split.</p>
 <h2>Limits</h2><p>Pageviews measure lookups, not usage, and an article can cover more than one sense. Phrase searches miss usages that never spell the meaning out. Treat each page as evidence, not a ruling.</p></main>`;
   return page({ root, title: 'Methodology — deduplication.tech', desc: 'How deduplication.tech decides which meaning of a word is the original and which is the duplicate.', canonical: 'methodology/', body, data: {} });
 }

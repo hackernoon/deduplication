@@ -273,7 +273,6 @@ Corona|science|Corona (sun)|Stellar corona|ancient|Coronavirus|Coronavirus|1968|
 Delta|science|Delta (letter)|Delta (letter)|ancient|SARS-CoV-2 Delta variant|SARS-CoV-2 Delta variant|2021|The Greek letter vs. the COVID variant.
 Omicron|science|Omicron (letter)|Omicron|ancient|SARS-CoV-2 Omicron variant|SARS-CoV-2 Omicron variant|2021|The 15th Greek letter vs. the 2021 variant.
 CRISPR|science|CRISPR (bacterial immunity)|CRISPR|1987|CRISPR gene editing|CRISPR gene editing|2012|A bacterial defense system vs. Doudna and Charpentier.
-Ozempic|science|Semaglutide|Semaglutide|2012|Ozempic face|Ozempic face|2023|A diabetes drug vs. a cultural phenomenon.
 Oppenheimer|science|J. Robert Oppenheimer|J. Robert Oppenheimer|1904|Oppenheimer (film)|Oppenheimer (film)|2023|The physicist vs. Christopher Nolan's film.
 Barbie|media|Barbie (doll)|Barbie|1959|Barbie (film)|Barbie (film)|2023|Mattel's doll vs. Greta Gerwig's film.
 Avatar|media|Avatar (Hinduism)|Avatar|ancient|Avatar (film)|Avatar (2009 film)|2009|Divine incarnation vs. James Cameron.
