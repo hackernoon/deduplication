@@ -1,0 +1,34 @@
+# Runs on any pull request that adds or edits terms. It:
+#   1. checks every new row against Wikipedia and removes ones that don't qualify (missing article, disambiguation page,
+#      or one meaning at 98%+ of pageviews) — removed rows go to discovery/rejected-terms.txt with the reason
+#   2. bakes Wikipedia pageview data for the surviving new terms into src/data.json
+#   3. commits both back to the pull request, so the Vercel preview and the merge include clean data
+name: check-new-terms
+on:
+  pull_request:
+    paths: ['src/terms*.txt']
+permissions:
+  contents: write
+jobs:
+  check:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ github.head_ref }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Check new terms on Wikipedia
+        run: node scripts/validate-terms.mjs
+      - name: Bake pageview data for new terms
+        run: node scripts/refresh-data.mjs
+      - name: Build check
+        run: node build.mjs | tail -3
+      - name: Commit results to this pull request
+        run: |
+          git config user.name "deduplication-bot"; git config user.email "bot@deduplication.tech"
+          git add src discovery
+          git diff --cached --quiet && echo "nothing to commit" && exit 0
+          git commit -m "Check new terms: prune failures, bake Wikipedia data"
+          git push

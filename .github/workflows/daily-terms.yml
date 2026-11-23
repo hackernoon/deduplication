@@ -1,0 +1,87 @@
+# deduplication.tech — keeps the site growing.
+#  · Every day:  discover new competing terms → bake their Wikipedia data → open a PR (or push to main if AUTO_PUBLISH).
+#  · 2nd of every month: re-collect pageviews for every term so rankings and "Contested / Duplicate dominant" stay current.
+#  · Manual run (Actions tab → Run workflow): same as daily; tick "backfill" to bake data for terms added by hand.
+# Vercel redeploys on every push to main, so a merged PR is live in about a minute.
+#
+# Repo settings needed (Settings → Secrets and variables → Actions):
+#   secret   ANTHROPIC_API_KEY   the editor that judges and writes each row (without it nothing is auto-published)
+#   variable AUTO_PUBLISH        "true" to commit straight to main; anything else opens a PR for one-click review
+#   variable DAILY_LIMIT         max new terms per day (default 10)
+#   variable MIN_QUALITY         editor score needed to publish, 1–10 (default 7)
+#   variable ANTHROPIC_MODEL     optional model override
+name: daily-terms
+on:
+  schedule:
+    - cron: '17 13 * * *'   # daily, 6:17am Mountain
+    - cron: '41 9 2 * *'    # monthly full pageview refresh
+  workflow_dispatch:
+    inputs:
+      backfill: { description: 'Only bake data for terms missing it (no discovery)', type: boolean, default: false }
+      limit: { description: 'Max new terms', default: '10' }
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: { group: daily-terms, cancel-in-progress: false }
+jobs:
+  grow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
+      DAILY_LIMIT: ${{ inputs.limit || vars.DAILY_LIMIT || '10' }}
+      MIN_QUALITY: ${{ vars.MIN_QUALITY || '7' }}
+      MONTHLY: ${{ github.event.schedule == '41 9 2 * *' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+
+      - name: Discover today's terms
+        if: env.MONTHLY != 'true' && inputs.backfill != true
+        id: discover
+        run: node scripts/discover.mjs
+
+      - name: Bake Wikipedia pageviews for new terms
+        if: env.MONTHLY != 'true'
+        run: node scripts/refresh-data.mjs
+
+      - name: Monthly full refresh
+        if: env.MONTHLY == 'true'
+        run: node scripts/refresh-data.mjs --all
+
+      - name: Social cards for pages that don't have one
+        if: env.MONTHLY != 'true'
+        continue-on-error: true
+        run: |
+          npm i --no-save --no-package-lock playwright @fontsource/big-shoulders-display @fontsource/ibm-plex-mono
+          npx playwright install --with-deps chromium
+          SKIP_WIKI=1 node build.mjs --cards /tmp/cards.json
+          node -e "const fs=require('fs');const c=JSON.parse(fs.readFileSync('/tmp/cards.json'));const m=c.filter(x=>!fs.existsSync('src/og/'+x.path+'.jpg'));fs.writeFileSync('/tmp/missing.json',JSON.stringify(m));console.log('cards to make:',m.length)"
+          node scripts/og-cards.mjs /tmp/missing.json
+
+      - name: Build check
+        run: node build.mjs | tail -3
+
+      - name: Publish straight to main
+        if: vars.AUTO_PUBLISH == 'true' || env.MONTHLY == 'true'
+        run: |
+          git config user.name "deduplication-bot"; git config user.email "bot@deduplication.tech"
+          git add src discovery
+          git diff --cached --quiet && echo "nothing new" && exit 0
+          git commit -m "Auto: $(date -u +%F) terms and data"
+          git push
+
+      - name: Open PR for review
+        if: vars.AUTO_PUBLISH != 'true' && env.MONTHLY != 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: auto/terms
+          title: "Daily terms (auto)"
+          commit-message: "Auto: new terms and Wikipedia data"
+          body-path: discovery/last-run.md
+          add-paths: |
+            src
+            discovery
+          delete-branch: true

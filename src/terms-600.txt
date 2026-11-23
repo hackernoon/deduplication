@@ -1,0 +1,151 @@
+# Nov 2026 batch: AI, alien & sci-fi, movie vs tech, media vs culture, economics vs IP.
+# Every pair was checked against Wikipedia on 2026-11-23: both articles exist, neither is a disambiguation page,
+# and each side drew real pageviews over Nov 2025–Oct 2026, with the duplicate's share between ~3% and ~97%.
+# term|cat|ORIGINAL label|wiki|year|DUPLICATE label|wiki|year|note|original definition|duplicate definition|qA|qB
+Cognition|ai|Cognition|Cognition|ancient|Cognition (AI lab)|Cognition AI|2023|The mental act of knowing now also names the lab behind the Devin coding agent.||||
+Thinking Machines|ai|Thinking Machines Corporation|Thinking Machines Corporation|1983|Thinking Machines Lab|Thinking Machines Lab|2025|A dead 1980s supercomputer maker's name, revived by Mira Murati's AI lab, and the lab is winning.||||
+Inflection|ai|Inflection (grammar)|Inflection|ancient|Inflection AI|Inflection AI|2022|Grammar's word for changing a word's form, borrowed by the startup Microsoft hollowed out in 2024.||||
+Stargate|ai|Stargate (film)|Stargate (film)|1994|Stargate (AI infrastructure)|Stargate LLC|2025|A sci-fi portal for aliens became a $500B data-center joint venture.||||
+Skynet|ai|Skynet (satellites)|Skynet (satellite)|1969|Skynet (Terminator)|Skynet (Terminator)|1984|Britain's military satellites had the name first; James Cameron's killer AI made it the shorthand for AI doom.||||
+Basilisk|ai|Basilisk (myth)|Basilisk|ancient|Roko's basilisk|Roko's basilisk|2010|A serpent that kills with a glance, and a thought experiment about an AI that punishes whoever didn't help build it.||||
+Accelerationism|ai|Accelerationism|Accelerationism|1960s|Effective accelerationism (e/acc)|Effective accelerationism|2022|A leftist theory of speeding capitalism to its end, rebranded by Silicon Valley as e/acc.||||
+Watermark|ai|Watermark (paper)|Watermark|1280s|Watermark (digital)|Digital watermarking|1990s|The mark held up to light became the invisible label meant to flag AI-generated media.||||
+Chinchilla|ai|Chinchilla (rodent)|Chinchilla|ancient|Chinchilla (language model)|Chinchilla (language model)|2022|An Andean rodent lent its name to DeepMind's scaling law.||||
+Flux|ai|Flux (physics)|Flux|1600s|Flux (image model)|Flux (text-to-image model)|2024|Physics' flow through a surface vs. Black Forest Labs' image generator, nearly tied.||||
+Comet|ai|Comet|Comet|ancient|Comet (browser)|Comet (browser)|2025|An icy body with a tail vs. Perplexity's agentic browser.||||
+Neural network|ai|Neural network (biology)|Neural network (biology)|1890s|Neural network (machine learning)|Neural network (machine learning)|1943|The brain's wiring was the model; the model now owns the phrase.||||
+Swarm|ai|Swarm (behavior)|Swarm behaviour|ancient|Swarm intelligence|Swarm intelligence|1989|Bees and starlings vs. multi-agent AI. Close fight.||||
+Recall|ai|Recall (memory)|Recall (memory)|ancient|Windows Recall|Windows Recall|2024|Human remembering vs. Microsoft's screenshot-everything AI feature, and the feature is ahead.||||
+Antigravity|ai|Anti-gravity|Anti-gravity|1900s|Google Antigravity|Google Antigravity|2025|Sci-fi physics vs. Google's agentic coding IDE. The IDE is winning.||||
+Superintelligence|ai|Superintelligence|Superintelligence|1960s|Safe Superintelligence (SSI)|Safe Superintelligence Inc.|2024|The concept vs. Ilya Sutskever's company that put it in its name.||||
+Mythos|ai|Mythos (myth)|Myth|ancient|Claude Mythos|Claude Mythos|2026|The Greek word for story vs. Anthropic's frontier model, dead even within months.||||
+Eliza|ai|Eliza Doolittle|Eliza Doolittle|1913|ELIZA (chatbot)|ELIZA|1966|Weizenbaum named the first chatbot after Shaw's flower girl who learned to talk like a lady.||||
+Sycophancy|ai|Sycophancy|Sycophancy|ancient|Sycophancy (AI)|Sycophancy (artificial intelligence)|2023|Flattery as old as courts, now a model-behavior bug.||||
+Interpretability|ai|Interpretability|Interpretability|1900s|Mechanistic interpretability|Mechanistic interpretability|2020|The general idea vs. the AI-safety discipline that took it over.||||
+Mariner|ai|Mariner program|Mariner program|1962|Project Mariner|Project Mariner|2024|NASA's first planetary probes vs. Google DeepMind's browser agent.||||
+Atlas|ai|Atlas (mythology)|Atlas (mythology)|ancient|ChatGPT Atlas|ChatGPT Atlas|2025|The Titan holding up the sky vs. OpenAI's browser.||||
+Autopilot|ai|Autopilot (aviation)|Autopilot|1912|Tesla Autopilot|Tesla Autopilot|2014|The aircraft system vs. Tesla's driver-assist, and Tesla now gets more of the lookups.||||
+Dojo|ai|Dojo|Dojo|ancient|Tesla Dojo|Tesla Dojo|2021|A martial-arts hall vs. Tesla's training supercomputer.||||
+Colossus|ai|Colossus of Rhodes|Colossus of Rhodes|280 BC|Colossus (xAI data center)|Colossus (data center)|2024|An ancient wonder vs. xAI's Memphis GPU cluster.||||
+Replicator|ai|Replicator (Star Trek)|Replicator (Star Trek)|1987|Replicator (Pentagon drones)|Replicator (United States military)|2023|Star Trek's matter maker lent its name to the Pentagon's plan for thousands of cheap autonomous drones.||||
+Harvey|ai|Harvey (1950 film)|Harvey (1950 film)|1950|Harvey (legal AI)|Harvey (software)|2022|Jimmy Stewart's invisible rabbit vs. the legal AI startup.||||
+Orchestration|infra|Orchestration (music)|Orchestration|1700s|Orchestration (computing)|Orchestration (computing)|2000s|Assigning parts to instruments vs. coordinating containers and agents.||||
+Rubin|hardware|Vera Rubin|Vera Rubin|1928|Rubin (Nvidia GPU)|Rubin (microarchitecture)|2026|The astronomer who found evidence of dark matter vs. Nvidia's next GPU, nearly tied.||||
+Tensor|hardware|Tensor (math)|Tensor|1898|Google Tensor|Google Tensor|2021|The math object behind deep learning vs. Google's phone chip.||||
+Volta|hardware|Alessandro Volta|Alessandro Volta|1745|Volta (Nvidia GPU)|Volta (microarchitecture)|2017|The battery's inventor vs. the GPU that trained early transformers.||||
+Kepler|hardware|Johannes Kepler|Johannes Kepler|1571|Kepler (Nvidia GPU)|Kepler (microarchitecture)|2012|Planetary laws vs. a 2012 GPU generation.||||
+Turing|hardware|Alan Turing|Alan Turing|1912|Turing (Nvidia GPU)|Turing (microarchitecture)|2018|The father of computer science vs. the GPU that brought ray tracing to gamers.||||
+Fermi|hardware|Enrico Fermi|Enrico Fermi|1901|Fermi (Nvidia GPU)|Fermi (microarchitecture)|2010|The physicist vs. Nvidia's 2010 architecture.||||
+Maxwell|hardware|James Clerk Maxwell|James Clerk Maxwell|1831|Maxwell (Nvidia GPU)|Maxwell (microarchitecture)|2014|The equations of light vs. a 2014 GPU generation.||||
+Frontier|hardware|Frontier (American West)|American frontier|1600s|Frontier (supercomputer)|Frontier (supercomputer)|2022|The Western frontier vs. the first exascale supercomputer.||||
+Summit|hardware|Summit|Summit|ancient|Summit (supercomputer)|Summit (supercomputer)|2018|A mountain's top vs. Oak Ridge's former #1 machine.||||
+El Capitan|hardware|El Capitan|El Capitan|1851|El Capitan (supercomputer)|El Capitan (supercomputer)|2024|Yosemite's granite wall vs. the world's fastest supercomputer (and an old macOS).||||
+Foundry|hardware|Foundry (metal casting)|Foundry|ancient|Foundry (semiconductors)|Foundry model|1987|Where metal is cast vs. where TSMC makes everyone's chips.||||
+Haiku|code|Haiku (poetry)|Haiku|1600s|Haiku (operating system)|Haiku (operating system)|2001|Seventeen syllables vs. the open-source BeOS revival.||||
+Pascal|code|Blaise Pascal|Blaise Pascal|1623|Pascal (programming language)|Pascal (programming language)|1970|The mathematician vs. the teaching language named for him.||||
+Ada|code|Ada Lovelace|Ada Lovelace|1815|Ada (programming language)|Ada (programming language)|1980|The first programmer vs. the Pentagon language named for her.||||
+Artifact|code|Artifact (archaeology)|Artifact (archaeology)|ancient|Artifact (software)|Artifact (software development)|1990s|A dug-up object vs. a build output, and now the name of an AI chat feature.||||
+Utility|code|Utility (economics)|Utility|1700s|Utility software|Utility software|1960s|Economics' measure of satisfaction vs. the small programs that maintain a computer.||||
+Yosemite|code|Yosemite National Park|Yosemite National Park|1864|OS X Yosemite|OS X Yosemite|2014|Apple started naming macOS after California places in 2013.||||
+Big Sur|code|Big Sur|Big Sur|ancient|macOS Big Sur|MacOS Big Sur|2020|A coastline vs. a 2020 macOS.||||
+Mojave|code|Mojave Desert|Mojave Desert|ancient|macOS Mojave|MacOS Mojave|2018|The desert vs. the macOS that introduced Dark Mode.||||
+Monterey|code|Monterey, California|Monterey, California|1770|macOS Monterey|MacOS Monterey|2021|A coastal city vs. a macOS, almost exactly tied.||||
+Ventura|code|Ventura, California|Ventura, California|1782|macOS Ventura|MacOS Ventura|2022|The macOS beats the city it's named after.||||
+Sonoma|code|Sonoma, California|Sonoma, California|1823|macOS Sonoma|MacOS Sonoma|2023|Wine country loses to the operating system.||||
+Tahoe|code|Lake Tahoe|Lake Tahoe|ancient|macOS Tahoe|MacOS Tahoe|2025|The Liquid Glass macOS is outdrawing the lake.||||
+Solaris|infra|Solaris (novel)|Solaris (novel)|1961|Oracle Solaris|Oracle Solaris|1992|Lem's sentient alien ocean vs. Sun's Unix.||||
+Jedi|infra|Jedi|Jedi|1977|JEDI (Pentagon cloud)|Joint Enterprise Defense Infrastructure|2018|Star Wars knights vs. the $10B cloud contract Amazon and Microsoft fought over.||||
+Gremlin|data|Gremlin (folklore)|Gremlin|1920s|Gremlin (query language)|Gremlin (query language)|2009|RAF folklore's machine-wrecking imps vs. Apache TinkerPop's graph query language.||||
+Sandworm|security|Sandworm (Dune)|Sandworm (Dune)|1965|Sandworm (hacker group)|Sandworm (hacker group)|2014|Arrakis's giant worms vs. the Russian military hackers who took down Ukraine's grid.||||
+Gatekeeper|security|Gatekeeper|Gatekeeper|ancient|Gatekeeper (macOS)|Gatekeeper (macOS)|2012|Whoever guards the gate vs. Apple's app-signing check.||||
+Krypton|science|Krypton (element)|Krypton|1898|Krypton (Superman's planet)|Krypton (comics)|1938|A noble gas vs. Superman's doomed home world.||||
+Vulcan|science|Vulcan (mythology)|Vulcan (mythology)|ancient|Vulcan Centaur (rocket)|Vulcan Centaur|2024|The Roman god of fire (and Spock's home world) vs. ULA's rocket. Dead even.||||
+Voyager|science|Voyager program|Voyager program|1977|Star Trek: Voyager|Star Trek: Voyager|1995|The probes still leaving the solar system vs. the starship lost on the other side of the galaxy.||||
+Roswell|science|Roswell, New Mexico|Roswell, New Mexico|1891|Roswell incident (UFO)|Roswell incident|1947|A ranching town vs. the crash everyone remembers.||||
+Juno|science|Juno (mythology)|Juno (mythology)|ancient|Juno (spacecraft)|Juno (spacecraft)|2011|Jupiter's wife vs. the probe orbiting Jupiter.||||
+Orion|science|Orion (constellation)|Orion (constellation)|ancient|Orion (spacecraft)|Orion (spacecraft)|2014|The hunter in the sky vs. the Artemis capsule, neck and neck.||||
+Raptor|science|Raptor (bird of prey)|Bird of prey|ancient|SpaceX Raptor (engine)|SpaceX Raptor|2019|Hawks and eagles vs. the methane engine on Starship.||||
+Galileo|science|Galileo Galilei|Galileo Galilei|1564|Galileo (satellite navigation)|Galileo (satellite navigation system)|2016|The astronomer vs. Europe's GPS.||||
+Copernicus|science|Nicolaus Copernicus|Nicolaus Copernicus|1473|Copernicus Programme|Copernicus Programme|2014|Heliocentrism vs. Europe's Earth-observation satellites.||||
+Chimera|science|Chimera (mythology)|Chimera (mythology)|ancient|Chimera (genetics)|Chimera (genetics)|1900s|A lion-goat-serpent monster vs. one body with two genomes.||||
+Sputnik|media|Sputnik 1|Sputnik 1|1957|Sputnik (news agency)|Sputnik (news agency)|2014|The satellite that started the space race vs. the Kremlin's news outlet.||||
+Alien|media|Alien (law)|Alien (law)|1300s|Alien (film)|Alien (film)|1979|A legal foreigner vs. the xenomorph. The movie wins by a mile.||||
+Predator|media|Predator (animal)|Predation|ancient|Predator (film)|Predator (film)|1987|Nature's hunters vs. the invisible alien hunter.||||
+Independence Day|media|Independence Day (US holiday)|Independence Day (United States)|1776|Independence Day (1996 film)|Independence Day (1996 film)|1996|The Fourth of July vs. the day aliens blew up the White House, and the movie edges out the holiday.||||
+Men in Black|media|Men in black (folklore)|Men in black|1950s|Men in Black (film)|Men in Black (1997 film)|1997|UFO folklore's sinister agents vs. Will Smith's neuralyzer.||||
+Terminator|media|Terminator (solar)|Terminator (solar)|1800s|The Terminator|The Terminator|1984|The line between day and night on a planet vs. the cyborg.||||
+Interstellar|media|Interstellar travel|Interstellar travel|1900s|Interstellar (film)|Interstellar (film)|2014|Real interstellar travel vs. Nolan's wormhole.||||
+Argo|media|Argo (Jason's ship)|Argo|ancient|Argo (2012 film)|Argo (2012 film)|2012|Jason's ship vs. Ben Affleck's Best Picture about a fake sci-fi movie.||||
+Armageddon|media|Armageddon|Armageddon|ancient|Armageddon (1998 film)|Armageddon (1998 film)|1998|The biblical end of days vs. Bruce Willis and the asteroid.||||
+Dogma|media|Dogma|Dogma|ancient|Dogma (film)|Dogma (film)|1999|Church doctrine vs. Kevin Smith's Affleck-and-Damon angel comedy.||||
+Paycheck|media|Paycheck|Paycheck|1900s|Paycheck (film)|Paycheck (film)|2003|A paycheck vs. Affleck's Philip K. Dick memory-wipe thriller.||||
+Butterfly effect|media|Butterfly effect (chaos theory)|Butterfly effect|1972|The Butterfly Effect (film)|The Butterfly Effect|2004|Lorenz's chaos theory vs. Ashton Kutcher's time-travel thriller, and Kutcher is winning.||||
+Halt and Catch Fire|media|Halt and Catch Fire (computing)|Halt and Catch Fire (computing)|1970s|Halt and Catch Fire (TV series)|Halt and Catch Fire (TV series)|2014|A CPU instruction that freezes the machine vs. the AMC show about the PC wars.||||
+Sneakers|media|Sneakers (shoes)|Sneakers|1910s|Sneakers (1992 film)|Sneakers (1992 film)|1992|Shoes vs. Robert Redford's hacker caper.||||
+Swordfish|media|Swordfish|Swordfish|ancient|Swordfish (film)|Swordfish (film)|2001|The fish vs. Hugh Jackman hacking at gunpoint.||||
+Silicon Valley|media|Silicon Valley|Silicon Valley|1971|Silicon Valley (TV series)|Silicon Valley (TV series)|2014|The real place vs. Mike Judge's parody of it, nearly tied.||||
+Threads|media|Threads (1984 film)|Threads (1984 film)|1984|Threads (Meta app)|Threads (social network)|2023|A nuclear-war film so bleak it's a cult classic vs. Meta's Twitter clone. The film is winning.||||
+Cameo|media|Cameo appearance|Cameo appearance|1900s|Cameo (app)|Cameo (website)|2017|A celebrity walk-on vs. paying a celebrity for a video.||||
+Blockbuster|media|Blockbuster (hit film)|Blockbuster (entertainment)|1940s|Blockbuster (video store)|Blockbuster (retailer)|1985|The word for a hit outlives the store chain Netflix killed.||||
+Peacock|media|Peacock (bird)|Peafowl|ancient|Peacock (streaming)|Peacock (streaming service)|2020|NBC's logo bird vs. NBC's streamer, nearly tied.||||
+Vice|media|Vice|Vice|ancient|Vice Media|Vice Media|1994|The sin vs. the media company that went bankrupt.||||
+Atlantic|media|Atlantic Ocean|Atlantic Ocean|ancient|The Atlantic (magazine)|The Atlantic|1857|An ocean vs. the magazine.||||
+Economist|media|Economist|Economist|1700s|The Economist|The Economist|1843|The profession vs. the newspaper. The paper wins.||||
+Pitchfork|media|Pitchfork (tool)|Pitchfork|ancient|Pitchfork (website)|Pitchfork (website)|1996|A farm tool vs. the music reviews.||||
+Vulture|media|Vulture (bird)|Vulture|ancient|Vulture (website)|Vulture (website)|2007|The scavenger vs. New York magazine's culture site.||||
+Bear|media|Bear (animal)|Bear|ancient|The Bear (TV series)|The Bear (TV series)|2022|"Yes, chef" now outdraws the animal.||||
+Yellowstone|media|Yellowstone National Park|Yellowstone National Park|1872|Yellowstone (TV series)|Yellowstone (TV series)|2018|The first national park vs. Kevin Costner's ranch.||||
+Ozark|media|Ozarks|Ozarks|ancient|Ozark (TV series)|Ozark (TV series)|2017|A mountain region vs. Netflix's money-laundering drama.||||
+Shogun|media|Shogun|Shogun|1192|Shōgun (TV series)|Shōgun (2024 TV series)|2024|Japan's military rulers vs. FX's record-setting series.||||
+Gladiator|media|Gladiator|Gladiator|ancient|Gladiator (2000 film)|Gladiator (2000 film)|2000|Rome's fighters vs. Russell Crowe.||||
+Joker|media|Joker (playing card)|Joker (playing card)|1860s|Joker (2019 film)|Joker (2019 film)|2019|The wild card vs. Joaquin Phoenix.||||
+Elf|media|Elf|Elf|ancient|Elf (film)|Elf (film)|2003|Folklore's elves vs. Will Ferrell's Buddy.||||
+Twister|media|Twister (game)|Twister (game)|1966|Twister (1996 film)|Twister (1996 film)|1996|Left hand red vs. a flying cow.||||
+Saw|media|Saw (tool)|Saw|ancient|Saw (film)|Saw (film)|2004|A cutting tool vs. "I want to play a game."||||
+Halloween|media|Halloween|Halloween|ancient|Halloween (1978 film)|Halloween (1978 film)|1978|The holiday still beats Michael Myers, but not by as much as you'd think.||||
+Creed|media|Creed (belief)|Creed|ancient|Creed (film)|Creed (film)|2015|A statement of faith vs. Rocky's protégé.||||
+Atlanta|media|Atlanta|Atlanta|1837|Atlanta (TV series)|Atlanta (TV series)|2016|The city vs. Donald Glover's show.||||
+Fargo|media|Fargo, North Dakota|Fargo, North Dakota|1871|Fargo (TV series)|Fargo (TV series)|2014|The real city is a distant second to the show.||||
+Dallas|media|Dallas|Dallas|1841|Dallas (TV series)|Dallas (TV series)|1978|Who shot J.R. vs. the actual city.||||
+Chernobyl|media|Chernobyl disaster|Chernobyl disaster|1986|Chernobyl (miniseries)|Chernobyl (miniseries)|2019|The disaster vs. HBO's retelling of it.||||
+Lupin|media|Arsène Lupin|Arsène Lupin|1905|Lupin (TV series)|Lupin (French TV series)|2021|The gentleman thief vs. Netflix's hit inspired by him.||||
+Quicksand|media|Quicksand|Quicksand|ancient|Quicksand (TV series)|Quicksand (TV series)|2019|The danger every '80s kid was sure they'd face vs. Netflix's Swedish thriller.||||
+Hercules|media|Hercules|Hercules|ancient|Hercules (1997 film)|Hercules (1997 film)|1997|The demigod vs. Disney's version.||||
+Mulan|media|Hua Mulan|Hua Mulan|500s|Mulan (1998 film)|Mulan (1998 film)|1998|The legend vs. Disney.||||
+Aladdin|media|Aladdin (folk tale)|Aladdin|1710|Aladdin (1992 film)|Aladdin (1992 Disney film)|1992|The Arabian Nights tale vs. Robin Williams's Genie.||||
+Pinocchio|media|Pinocchio (novel)|Pinocchio|1883|Pinocchio (1940 film)|Pinocchio (1940 film)|1940|Collodi's puppet vs. Disney's, roughly tied.||||
+Pocahontas|media|Pocahontas|Pocahontas|1596|Pocahontas (1995 film)|Pocahontas (1995 film)|1995|The historical figure still beats the cartoon.||||
+Thor|media|Thor (Norse god)|Thor|ancient|Thor (Marvel)|Thor (Marvel Comics)|1962|The Norse god still beats the Marvel one.||||
+Loki|media|Loki (Norse god)|Loki|ancient|Loki (Marvel)|Loki (Marvel Comics)|1962|The trickster god vs. Tom Hiddleston (and Grafana's log tool).||||
+Titanic|media|Titanic (ship)|Titanic|1912|Titanic (1997 film)|Titanic (1997 film)|1997|The ship and the movie are nearly tied.||||
+Hermes|business|Hermes (god)|Hermes|ancient|Hermès (fashion house)|Hermès|1837|The messenger god vs. the Birkin bag.||||
+Cruise|business|Cruise ship|Cruise ship|1840s|Cruise (robotaxi)|Cruise (autonomous vehicle)|2013|Vacation ships vs. GM's shut-down robotaxi company.||||
+Nikola|business|Nikola Tesla|Nikola Tesla|1856|Nikola Corporation|Nikola Corporation|2014|The inventor vs. the truck startup that rolled one down a hill.||||
+Doge|business|Doge of Venice|Doge of Venice|697|DOGE (government)|Department of Government Efficiency|2025|Venice's elected rulers vs. Musk's government-cutting department, named after the meme.||||
+Wall Street|fintech|Wall Street|Wall Street|1600s|Wall Street (1987 film)|Wall Street (1987 film)|1987|"Greed is good" now gets more lookups than the street.||||
+Arbitrage|fintech|Arbitrage|Arbitrage|1700s|Arbitrage (film)|Arbitrage (film)|2012|Risk-free profit vs. Richard Gere's hedge-fund thriller, nearly tied.||||
+Equilibrium|fintech|Equilibrium (economics)|Economic equilibrium|1870s|Equilibrium (film)|Equilibrium (film)|2002|Supply meets demand vs. Christian Bale's gun-kata dystopia.||||
+Leverage|fintech|Leverage (finance)|Leverage (finance)|1900s|Leverage (TV series)|Leverage (American TV series)|2008|Borrowed money vs. TNT's heist show.||||
+Antitrust|fintech|Antitrust law|Competition law|1890|Antitrust (film)|Antitrust (film)|2001|Breaking up monopolies vs. a thriller about a thinly veiled Bill Gates. Dead even.||||
+Monopoly|fintech|Monopoly (economics)|Monopoly|ancient|Monopoly (game)|Monopoly (game)|1935|The economic concept loses to the board game.||||
+Inflation|fintech|Inflation (economics)|Inflation|1800s|Cosmic inflation|Cosmic inflation|1980|Rising prices vs. the universe's first fraction of a second.||||
+Citadel|fintech|Citadel (fortress)|Citadel|ancient|Citadel (hedge fund)|Citadel LLC|1990|A fortress vs. Ken Griffin's hedge fund.||||
+Renaissance|fintech|Renaissance|Renaissance|1300s|Renaissance Technologies|Renaissance Technologies|1982|Europe's rebirth vs. Jim Simons's quant fund.||||
+Vanguard|fintech|Vanguard (military)|Vanguard|ancient|Vanguard (asset manager)|The Vanguard Group|1975|The front line vs. the index-fund giant.||||
+Fidelity|fintech|Fidelity|Fidelity|ancient|Fidelity Investments|Fidelity Investments|1946|Faithfulness vs. your 401(k).||||
+Berkshire|fintech|Berkshire (county)|Berkshire|ancient|Berkshire Hathaway|Berkshire Hathaway|1955|An English county vs. Buffett's holding company.||||
+Libra|crypto|Libra (astrology)|Libra (astrology)|ancient|Libra (Facebook currency)|Diem (digital currency)|2019|The scales of the zodiac vs. Facebook's abandoned stablecoin.||||
+Polkadot|crypto|Polka dot|Polka dot|1850s|Polkadot (blockchain)|Polkadot (blockchain platform)|2020|A dotted pattern vs. Gavin Wood's blockchain.||||
+Lightning|crypto|Lightning|Lightning|ancient|Lightning Network|Lightning Network|2018|The bolt vs. Bitcoin's payment layer.||||
+Tron|crypto|Tron (film)|Tron|1982|Tron (blockchain)|Tron (blockchain)|2017|Disney's light cycles vs. Justin Sun's blockchain.||||
+Gopher|internet|Gopher (animal)|Gopher|ancient|Gopher (protocol)|Gopher (protocol)|1991|A burrowing rodent vs. the protocol the web replaced.||||
+Canvas|design|Canvas (painting)|Canvas|ancient|Canvas (HTML element)|Canvas element|2004|Painters' cloth vs. the browser's drawing surface.||||
+Walled garden|internet|Walled garden|Walled garden|ancient|Walled garden (technology)|Closed platform|1990s|An enclosed garden vs. Apple's App Store.||||
+Chad|internet|Chad (country)|Chad|1960|Chad (slang)|Chad (slang)|2010s|A Central African country vs. the internet's alpha male.||||
+Karen|internet|Karen (name)|Karen (name)|ancient|Karen (slang)|Karen (slang)|2017|A popular name vs. the manager-demanding meme.||||
+Hades|gaming|Hades|Hades|ancient|Hades (video game)|Hades (video game)|2020|The underworld god vs. Supergiant's roguelike.||||
+Cyberpunk|gaming|Cyberpunk|Cyberpunk|1980|Cyberpunk 2077|Cyberpunk 2077|2020|The sci-fi genre vs. the game, which is winning.||||
+Asteroids|gaming|Asteroid|Asteroid|1802|Asteroids (video game)|Asteroids (video game)|1979|Space rocks vs. Atari's arcade hit.||||
+Spore|gaming|Spore (biology)|Spore|1800s|Spore (video game)|Spore (2008 video game)|2008|Fungal reproduction vs. Will Wright's evolution game.||||
+Civilization|gaming|Civilization|Civilization|ancient|Civilization (video game)|Civilization (video game)|1991|Human history vs. "one more turn."||||
+Pandora|media|Pandora (mythology)|Pandora|ancient|Pandora (radio)|Pandora (service)|2000|The first woman and her box vs. the music service (and Avatar's moon).||||

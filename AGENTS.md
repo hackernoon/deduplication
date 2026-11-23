@@ -15,7 +15,9 @@ This site is finished and live. Make small, targeted edits only.
 - `src/app.js` – browser code (search, word cloud, charts). `src/app.css` – all styles and colours.
 - `src/terms*.txt` – the term database, one per line:
   `term|cat|origLabel|origWiki|origYear|dupLabel|dupWiki|dupYear|note|origDef|dupDef|qA|qB`
-- `src/data.json` – Wikipedia pageview data. Do not hand-edit.
+- `src/terms-auto.txt` – appended by the daily discovery bot (`scripts/discover.mjs`, `.github/workflows/daily-terms.yml`). Fine to edit or delete lines.
+- `discovery/` – bot state: seeds.txt (words to try), backlog.json, judged.json, log/. 
+- `src/data.json` – Wikipedia pageview data. Do not hand-edit; `node scripts/refresh-data.mjs` fills it.
 - `src/og/` – social share images (one JPG per page). Regenerate after adding terms: see the top of `scripts/og-cards.mjs`. Pages without a card use `src/og/default.jpg`.
 - `src/hn-tags.json` – HackerNoon tags verified to exist; used for the "On HackerNoon" links.
 - Missing definitions are filled from Wikipedia's lead sentence at build time (set SKIP_WIKI=1 to skip).

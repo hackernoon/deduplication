@@ -1,0 +1,15 @@
+# Words to try on the next daily run, one per line. The pipeline finds the two exact-title Wikipedia meanings,
+# checks both have real pageviews, and only keeps it if the fight is still competitive. Lines starting with # are ignored.
+# Delete a word once it's on the site (or leave it; words already covered are skipped).
+Token
+Slop
+Vibe
+Agentic
+Clanker
+Moltbook
+Hard Fork
+Platformer
+Pivot
+Sonnet
+Opus
+Haiku

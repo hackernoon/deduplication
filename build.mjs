@@ -23,7 +23,7 @@ function yearText(y) { if (!y) return 'origin undated'; if (y === 'ancient') ret
 
 // ---------- parse ----------
 const readRows = f => fs.existsSync(SRC + f) ? fs.readFileSync(SRC + f, 'utf8').split('\n').filter(l => l.trim() && !l.startsWith('#')) : [];
-const userRows = [...readRows('terms-100.txt'), ...readRows('terms-200.txt'), ...readRows('terms-300.txt'), ...readRows('terms-400.txt'), ...readRows('terms-500.txt')];
+const userRows = [...readRows('terms-100.txt'), ...readRows('terms-200.txt'), ...readRows('terms-300.txt'), ...readRows('terms-400.txt'), ...readRows('terms-500.txt'), ...readRows('terms-600.txt'), ...readRows('terms-700.txt'), ...readRows('terms-auto.txt')];
 const key2 = l => { const f = l.split('|').map(x => (x || '').trim()); return f[0].toLowerCase() + '|' + (f[6] || f[5]).toLowerCase(); };
 const userKeys = new Set(userRows.map(key2));
 const userTermsSeen = new Set();
