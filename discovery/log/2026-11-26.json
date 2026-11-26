@@ -1,0 +1,1316 @@
+{
+ "date": "2026-11-26",
+ "scanned": 934,
+ "passedDataGates": 27,
+ "published": [],
+ "skipped": [
+  {
+   "word": "Wire",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Chromium",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Mono",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Vivo",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Nomad",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Opus",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "X",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Grand Theft Auto",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Rust",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Paper Tiger",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "The Diplomat",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Thanksgiving",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Scene",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Sauron",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Will",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Haemanthus",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "War",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "The",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Bonnie and Clyde",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Single",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "The Savages",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Act",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Turkey",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Australia",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "King",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Running",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  },
+  {
+   "word": "Breeder",
+   "why": "no ANTHROPIC_API_KEY, left for review"
+  }
+ ],
+ "rejectedSample": [
+  {
+   "word": "Token",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "seed",
+   "onSite": true
+  },
+  {
+   "word": "Slop",
+   "reject": "only one meaning has real pageviews",
+   "source": "seed",
+   "onSite": false
+  },
+  {
+   "word": "Vibe",
+   "reject": "only one meaning has real pageviews",
+   "source": "seed",
+   "onSite": false
+  },
+  {
+   "word": "Agentic",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "seed",
+   "onSite": false
+  },
+  {
+   "word": "Clanker",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "seed",
+   "onSite": false
+  },
+  {
+   "word": "Moltbook",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "seed",
+   "onSite": false
+  },
+  {
+   "word": "Hard Fork",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "seed",
+   "onSite": false
+  },
+  {
+   "word": "Platformer",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "seed",
+   "onSite": false
+  },
+  {
+   "word": "Pivot",
+   "reject": "only one meaning has real pageviews",
+   "source": "seed",
+   "onSite": true
+  },
+  {
+   "word": "Sonnet",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "seed",
+   "onSite": false
+  },
+  {
+   "word": "Haiku",
+   "reject": "already on the site",
+   "source": "seed",
+   "onSite": true
+  },
+  {
+   "word": "Ramayana: Part 1",
+   "reject": "shape",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Ezra Frech",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Jennifer Barreto",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Andy Taylor",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Mike McCarthy",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Aaron Rodgers",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Lead(II) azide",
+   "reject": "shape",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Martha Firestone Ford",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Elizabeth Holmes",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Jensen Huang",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Daniella Karagach",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Avengers: Doomsday",
+   "reject": "shape",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Ansel Adams",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Tatyana Ali",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Ade Adepitan",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Zyri",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "The Body",
+   "reject": "both sides are creative works (franchise, not duplication)",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Raheem Sterling",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Rob Lowe",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Connor Wood",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Riemann hypothesis",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Duran Duran",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Bea Millan-Windorski",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Pete Edochie",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Sam Bankman-Fried",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Vaibhav Sooryavanshi",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Hunter Schafer",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Focker-in-Law",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Soham murders",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Hexed",
+   "reject": "only one meaning has real pageviews",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Billy Evans",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Joseph Zada",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Mckenna Grace",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "XXX",
+   "reject": "both sides are creative works (franchise, not duplication)",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "ChatGPT",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Mariella Frostrup",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "O.M: Operation Mole",
+   "reject": "shape",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": ".xxx",
+   "reject": "shape",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Maura Higgins",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Caroline Ellison",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Pasha Pashkov",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Bahar Soomekh",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Rogue wave",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Robert Pattinson",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Amber Glenn",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "White chocolate",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Mason Rudolph",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Amanda Seyfried",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "The Mosquito Bowl",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Nathan Fielder",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Steps",
+   "reject": "one side is an adaptation of the other",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "From",
+   "reject": "only one meaning has real pageviews",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Sara Boustany",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "The Odyssey",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Nvidia",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": true
+  },
+  {
+   "word": "Jude Bellingham",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Anna's Archive",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Sheila Ford Hamp",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Johnny Flynn",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Sylvester Stallone",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "XXXX",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Sabah FK",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Anant Kumar Singh",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Leigh Francis",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Miss Universe",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Aakasamlo Oka Tara",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Rylee Arnold",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Jeff Bezos",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "The Hunger Games",
+   "reject": "both sides are creative works (franchise, not duplication)",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Rockstar Games",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "John Madden",
+   "reject": "the trending meaning itself was filtered out",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Veruschka",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Miley Cyrus",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "XNXX",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Bohr family",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "MobLand",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Manni L. Perez",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Zach Callison",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Devils Hole",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Wikipedia",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "YouTube",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Dig",
+   "reject": "one side is an adaptation of the other",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "John Taylor",
+   "reject": "the trending meaning itself was filtered out",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "The Remarried Empress",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Fred Rogers",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Jennifer Lawrence",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Anthony Russell",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Survivor Series: WarGames",
+   "reject": "shape",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Sex",
+   "reject": "the trending meaning itself was filtered out",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Ricky Wilson",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "United States",
+   "reject": "only one meaning has real pageviews",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Donald Trump",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "The Altruists",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Levent Alpöge",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Julianne Hough",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Kristina Bogic",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Georgia Waddington",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Ebenezer",
+   "reject": "only one meaning has real pageviews",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Macaulay Culkin",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Wicker",
+   "reject": "one meaning has already won (5%)",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Mark Ballas",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Parastoo Ahmadi",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Clara Vegas",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Leighton Meester",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Paula Yates",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Theranos",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Maxx Morando",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Nocturne",
+   "reject": "one side is an adaptation of the other",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Godzilla Minus Zero",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Carrie Ann Inaba",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Edsel Ford",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Kaziah Mejo",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "John O'Hurley",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "I Play Rocky",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Leomie Anderson",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Henry Ford",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Sunny Balwani",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Chloë Grace Moretz",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Victoria Broderick",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Guarding Stars",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Geena Meszaros",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Dario Amodei",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Russell Brand",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Abdul El-Sayed",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Jailer 2",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Cristiano Ronaldo",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Michelle Randolph",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Black Doves",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Tom Hardy",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Obsession",
+   "reject": "one meaning has already won (2%)",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Jim Bakker",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Anthony Bourdain",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Roger Taylor",
+   "reject": "the trending meaning itself was filtered out",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Jan Ravnik",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Tony Butkovich",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Airport",
+   "reject": "one side is an adaptation of the other",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Dylan Rourke",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Alice Huang",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Bruno Tonioli",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Freddie Mercury",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Kieran Culkin",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Hayden Panettiere",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Rasmus Højlund",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Julia Garner",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Myka Lockwood",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Inde Navarrette",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Tiangong space station",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Blade Runner",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Robert Lindsay",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Philip Seymour Hoffman",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Wild Horse Nine",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Elon Musk",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Michael Hutchence",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "VisionQuest",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "November 25",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Patrick Stewart",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "James Marsden",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Ariana Grande",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Yellowjackets",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Derek Hough",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Zohran Mamdani",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Wildwood",
+   "reject": "both sides are creative works (franchise, not duplication)",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Jobe Bellingham",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Girls' Generation-HRS",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Rivals",
+   "reject": "error gave up https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=pageprops%7Cdescription%7Cextracts&ppprop=disambiguation&exintro=1&explaintext=1&exsentences=2&exlimit=20&titles=Rivals+%281923+film%29%7CRivals+%281925+American+film%29%7CRivals+%281925+Polish+film%29%7CRivals+%281972+film%29%7CRivals+%281985+film%29%7CRivals+%282008+French+film%29%7CRivals+%282008+Spanish+film%29%7CRivals+%28Coal+Chamber+album%29%7CRivals+%28Kensington+album%29%7CRivals+%28Star+Trek%3A+Deep+Space+Nine%29%7CRivals+%28TV+series%29%7CRivals+%28novel%29%7CThe+Rivals%7CThe+Rivals+%281664+play%29%7CThe+Rivals+%281926+film%29%7CThe+Rivals+%281964+film%29%7CThe+Rivals+%28TV+play%29%7CThe+Rivals+%28painting%29"
+  },
+  {
+   "word": "AJ Odudu",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Age of Aquarius",
+   "reject": "only one meaning has real pageviews",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Wi-Fi 7",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Melissa Núñez",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Dune: Part Three",
+   "reject": "shape",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Jared Padalecki",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Sporting CP",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Brandon Aiyuk",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "David Mamet",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Zendaya",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Dan Houser",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Travis Barker",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Kaiser Chiefs",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "John Travolta",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Michael Jackson",
+   "reject": "the trending meaning itself was filtered out",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Hailee Steinfeld",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Tom Holland",
+   "reject": "fewer than 2 usable meanings after filters",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Mauricio Pochettino",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Florence Pugh",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Google",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Z-Library",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Elsinore",
+   "reject": "only one meaning has real pageviews",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Fátima Bosch",
+   "reject": "fewer than 2 exact-title meanings",
+   "source": "wikipedia-top",
+   "onSite": false
+  },
+  {
+   "word": "Middletown, Iowa",
+   "reject": "shape",
+   "source": "wikipedia-top",
+   "onSite": false
+  }
+ ]
+}
