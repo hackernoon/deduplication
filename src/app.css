@@ -310,3 +310,7 @@ footer.fat .fgrid{grid-template-columns:repeat(5,minmax(0,1fr))}
 .src cite{display:block;font-style:normal;font-size:12px;opacity:.75;margin-top:2px}
 .src cite a{color:inherit}
 .hnlinks a.first{font-weight:600}
+
+/* admin-only edit link on term pages (shown when this browser is signed in at /admin) */
+.admin-edit{margin-left:12px;font:600 12px/1 ui-monospace,monospace;text-transform:uppercase;letter-spacing:.08em;color:#000;background:var(--green,#00e85b);padding:6px 10px;border-radius:4px;text-decoration:none;white-space:nowrap}
+.admin-edit[hidden]{display:none}

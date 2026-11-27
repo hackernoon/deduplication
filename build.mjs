@@ -183,7 +183,7 @@ function termPage(t) {
 </section>
 <div class="splitbar" id="splitbar" hidden><span id="splitbar-a"></span><span id="splitbar-b"></span></div>
 <div class="splitnote" id="splitnote" hidden><div class="wrap">This bar is the word itself, split by who owns it: <b class="pa">grey</b> = original meaning, <b class="pb">green</b> = duplicate meaning, sized by the last 12 months of Wikipedia attention.</div></div>
-<div class="h1row"><div class="wrap"><h1 class="path">${esc(t.term)}<span class="s"> / </span><span class="pa">${esc(t.A.label)}</span><span class="s"> / </span><span class="pb">${esc(t.B.label)}</span></h1><span class="live" id="live-status">Loading data…</span></div></div>
+<div class="h1row"><div class="wrap"><h1 class="path">${esc(t.term)}<span class="s"> / </span><span class="pa">${esc(t.A.label)}</span><span class="s"> / </span><span class="pb">${esc(t.B.label)}</span></h1><span class="live" id="live-status">Loading data…</span><a class="admin-edit" id="admin-edit" href="${root}admin/?edit=${encodeURIComponent(t.url.replace(/^term\//, '').replace(/\/$/, ''))}" hidden>Edit ✎</a><script>try{if(localStorage.getItem('dd_admin_token'))document.getElementById('admin-edit').hidden=false}catch(e){}</script></div></div>
 <div class="verdict" id="verdict"><div class="cell big"><span>Canonical today</span><b>Measuring…</b></div><div class="cell"><span>Status</span><b>—</b></div><div class="cell"><span>Duplicate share · 12 mo</span><b>—</b></div><div class="cell"><span>Last crossover</span><b>—</b></div></div>
 <div class="wrap"><div class="ckey"><span class="kt">Colour key</span><span class="ka"><i></i>Grey · original meaning</span><span class="kb"><i></i>Green · duplicate meaning</span><span class="kc"><i></i>Amber · contested (40–60%)</span><a href="${root}${href('methodology/')}#colors">How colours work</a></div></div>
 <main class="wrap">
@@ -386,7 +386,9 @@ const smUrl = (u, pr) => `<url><loc>${SITE}/${u}</loc><lastmod>${TODAY}</lastmod
 w('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${[['', '1.0'], ['about/', '0.6'], ['methodology/', '0.6'], ['terms/', '0.8'], ['privacy/', '0.2'], ['terms-and-conditions/', '0.2']].map(([u, p]) => smUrl(u, p)).join('')}${Object.keys(byCatAll).map(c => smUrl(`field/${c}/`, '0.7')).join('')}${terms.map(t => smUrl(t.url, '0.8')).join('')}</urlset>`);
 // social share cards
 if (fs.existsSync(SRC + 'og')) fs.cpSync(SRC + 'og', OUT + 'og', { recursive: true });
-w('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n# Hack this site: found a duplicated term we missed? Write it up on HackerNoon and tag #deduplication\n`);
+w('robots.txt', `User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: ${SITE}/sitemap.xml\n# Hack this site: found a duplicated term we missed? Write it up on HackerNoon and tag #deduplication\n`);
+// Editor queue at /admin (noindex; signs in with a GitHub token that can push to the repo)
+if (fs.existsSync(SRC + 'admin.html')) w('admin/index.html', fs.readFileSync(SRC + 'admin.html', 'utf8'));
 w('vercel.json', JSON.stringify({ cleanUrls: true, trailingSlash: true }, null, 2));
 w('terms.json', JSON.stringify(terms.map(t => ({ term: t.term, category: t.cat, url: SITE + '/' + t.url, original: t.A, duplicate: t.B, note: t.note })), null, 1));
 console.log('wrote', terms.length + 4, 'pages');

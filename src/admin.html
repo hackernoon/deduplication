@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Queue admin — deduplication.tech</title><meta name="robots" content="noindex,nofollow">
+<style>
+:root{--bg:#141515;--panel:#1c1d1e;--line:#2c2e2f;--txt:#eef0ec;--mut:#8e908b;--green:#00e85b;--amber:#ffb020;--red:#ff5a5a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit}header{display:flex;align-items:center;gap:16px;padding:14px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+header b{font-size:18px;letter-spacing:.02em}header b i{font-style:normal;color:var(--green)}header .sp{flex:1}
+button,select,input{font:inherit;color:var(--txt);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:7px 11px}
+button{cursor:pointer}button:hover{border-color:var(--mut)}button.go{background:var(--green);color:#000;border-color:var(--green);font-weight:600}
+button.acc{border-color:#1e6b3c}button.rej{border-color:#6b1e1e}button:disabled{opacity:.4;cursor:default}
+main{padding:20px 24px;max-width:1400px;margin:0 auto}.muted{color:var(--mut)}.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;max-width:640px}
+.tabs{display:flex;gap:6px;margin:6px 0 14px;flex-wrap:wrap}.tabs button.on{border-color:var(--green);color:var(--green)}
+.bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11px/1 ui-monospace,monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);position:sticky;top:62px;background:var(--bg)}
+td.w{font-weight:700;font-size:16px;white-space:nowrap}.pair a{text-decoration:none;border-bottom:1px dotted var(--mut)}.pair .d{font-size:12px;color:var(--mut)}
+.share{width:150px}.sb{height:8px;border-radius:4px;background:#5d605c;overflow:hidden;margin:4px 0}.sb i{display:block;height:100%;background:var(--green)}
+.share small{font:12px ui-monospace,monospace;color:var(--mut)}tr.chg{background:rgba(0,232,91,.06)}tr.st-rejected td.w{text-decoration:line-through;color:var(--mut)}
+.pill{font:600 11px ui-monospace,monospace;padding:2px 7px;border-radius:10px;border:1px solid var(--line)}.pill.accepted{color:var(--green);border-color:#1e6b3c}.pill.rejected{color:var(--red)}.pill.published{color:var(--amber)}
+#msg{position:fixed;bottom:18px;right:18px;background:var(--panel);border:1px solid var(--line);padding:10px 14px;border-radius:8px;display:none;max-width:420px}
+.eta{font:12px ui-monospace,monospace;color:var(--mut)}
+</style></head><body>
+<header><b>DEDUPLICATION<i>.TECH</i> · queue</b><span class="muted" id="who"></span><span class="sp"></span>
+<button id="save" class="go" disabled>Save changes</button><button id="out" hidden>Sign out</button></header>
+<main id="app"></main><div id="msg"></div>
+<script>
+const REPO = 'hackernoon/deduplication', BRANCH = 'main', QPATH = 'discovery/queue.json', SEEDS = 'discovery/seeds.txt';
+const CATS = { ai: 'AI & machine learning', code: 'Programming & software', infra: 'Cloud & infrastructure', data: 'Data & databases', design: 'Design & UX', security: 'Cybersecurity', hardware: 'Hardware & devices', crypto: 'Crypto & web3', business: 'Business & startups', fintech: 'Money & fintech', internet: 'Internet culture', gaming: 'Gaming', science: 'Science & space', media: 'Film, TV & media' };
+const $ = s => document.querySelector(s), app = $('#app');
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmt = n => n >= 1e6 ? (n / 1e6).toFixed(1) + 'M' : n >= 1e3 ? Math.round(n / 1e3) + 'K' : String(n || 0);
+const wiki = t => 'https://en.wikipedia.org/wiki/' + encodeURIComponent(String(t).replace(/ /g, '_'));
+let token = null, user = null, queue = null, changes = {}, tab = 'pending', q = '', catF = '', perDay = 50, limit = 200;
+const msg = (t, ms = 3500) => { const m = $('#msg'); m.textContent = t; m.style.display = 'block'; clearTimeout(msg.t); msg.t = setTimeout(() => m.style.display = 'none', ms); };
+try { token = localStorage.getItem('dd_admin_token'); } catch (e) {}
+
+async function gh(path, opts = {}) {
+  const r = await fetch('https://api.github.com' + path, { ...opts, headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', ...(opts.headers || {}) } });
+  if (!r.ok) throw new Error(r.status + ' ' + (await r.text()).slice(0, 200));
+  return r.json();
+}
+const b64dec = b => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\n/g, '')), c => c.charCodeAt(0)));
+const b64enc = s => { const bytes = new TextEncoder().encode(s); let bin = ''; for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000)); return btoa(bin); };
+async function readFile(path) {
+  const meta = await gh(`/repos/${REPO}/contents/${path}?ref=${BRANCH}`);
+  const content = meta.content ? b64dec(meta.content) : b64dec((await gh(`/repos/${REPO}/git/blobs/${meta.sha}`)).content);
+  return { sha: meta.sha, text: content };
+}
+async function writeFile(path, text, sha, message) {
+  return gh(`/repos/${REPO}/contents/${path}`, { method: 'PUT', body: JSON.stringify({ message, content: b64enc(text), sha, branch: BRANCH }) });
+}
+
+function login(err) {
+  $('#out').hidden = true; $('#save').hidden = true;
+  app.innerHTML = `<div class="card"><h2 style="margin-top:0">Sign in with GitHub</h2>
+  <p>This page edits <b>${REPO}</b> directly, so only people who can push to that repo can use it.</p>
+  <ol class="muted"><li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → new fine-grained token</a>.</li>
+  <li>Resource owner: <b>hackernoon</b>. Repository access: only <b>deduplication</b>.</li><li>Permissions → Repository → <b>Contents: Read and write</b>. Generate, copy.</li></ol>
+  <p><input id="tok" type="password" placeholder="github_pat_…" style="width:100%"></p><p><button class="go" id="go">Connect GitHub</button></p>
+  <p class="muted" style="font-size:13px">The token stays in this browser only (localStorage) and is sent only to api.github.com.</p>${err ? `<p style="color:var(--red)">${esc(err)}</p>` : ''}</div>`;
+  $('#go').onclick = async () => { token = $('#tok').value.trim(); try { localStorage.setItem('dd_admin_token', token); } catch (e) {} start(); };
+}
+
+async function start() {
+  if (!token) return login();
+  app.innerHTML = '<p class="muted">Checking access…</p>';
+  try {
+    user = await gh('/user');
+    const repo = await gh(`/repos/${REPO}`);
+    if (!repo.permissions?.push) { try { localStorage.removeItem('dd_admin_token'); } catch (e) {} token = null; return login(`@${user.login} can't push to ${REPO}.`); }
+  } catch (e) { try { localStorage.removeItem('dd_admin_token'); } catch (e2) {} token = null; return login('That token didn\'t work: ' + e.message); }
+  $('#who').textContent = '@' + user.login; $('#out').hidden = false; $('#save').hidden = false;
+  const ek = new URLSearchParams(location.search).get('edit');
+  if (ek) { await load(); return editTerm(ek); }
+  await load();
+}
+async function load() {
+  app.innerHTML = '<p class="muted">Loading the queue…</p>';
+  try { const f = await readFile(QPATH); queue = JSON.parse(f.text); queue._sha = f.sha; }
+  catch (e) { queue = { items: [] }; if (!/404/.test(e.message)) msg('Couldn\'t load the queue: ' + e.message, 8000); }
+  changes = {}; render();
+}
+const status = i => changes[i.id]?.status ?? i.status, cat = i => changes[i.id]?.cat ?? i.cat;
+function setChange(id, patch) { changes[id] = { ...(changes[id] || {}), ...patch }; const orig = queue.items.find(i => i.id === id); if (changes[id].status === orig.status && (changes[id].cat ?? orig.cat) === orig.cat) delete changes[id]; render(); }
+
+function render() {
+  const n = Object.keys(changes).length; $('#save').disabled = !n; $('#save').textContent = n ? `Save ${n} change${n > 1 ? 's' : ''}` : 'Saved';
+  const items = queue.items, count = s => items.filter(i => status(i) === s).length;
+  const accepted = items.filter(i => status(i) === 'accepted').sort((a, b) => ((changes[a.id]?.acceptedAt || a.acceptedAt || '9') + '').localeCompare((changes[b.id]?.acceptedAt || b.acceptedAt || '9') + '') || b.score - a.score);
+  let list = tab === 'accepted' ? accepted : items.filter(i => status(i) === tab);
+  if (q) list = list.filter(i => (i.word + ' ' + i.A.title + ' ' + i.B.title).toLowerCase().includes(q.toLowerCase()));
+  if (catF) list = list.filter(i => cat(i) === catF);
+  const shown = list.slice(0, limit), day = d => { const t = new Date(); t.setUTCDate(t.getUTCDate() + d); return t.toISOString().slice(5, 10); };
+  app.innerHTML = `
+  <p class="muted">Queue updated ${esc((queue.updated || '').slice(0, 10) || 'never')} · new candidates are mined every Monday and reviewed automatically from Wikipedia/Wikidata data (only clear, high-traffic fights auto-publish; held items never publish unless you accept them) · accepted terms publish at ${perDay}/day (change with the DAILY_LIMIT repo variable).</p>
+  <div class="tabs">${[['pending', 'Held for review'], ['accepted', 'Publishing queue'], ['rejected', 'Rejected'], ['published', 'Published']].map(([k, l]) => `<button data-tab="${k}" class="${tab === k ? 'on' : ''}">${l} · ${count(k)}</button>`).join('')}<button data-live>Live terms · edit / remove</button></div>
+  <div class="bar"><input id="q" placeholder="Search word or article" value="${esc(q)}"><select id="cf"><option value="">All categories</option>${Object.entries(CATS).map(([k, v]) => `<option value="${k}" ${catF === k ? 'selected' : ''}>${v}</option>`).join('')}</select>
+  ${tab === 'pending' ? `<button class="acc" id="accAll">Accept all ${Math.min(list.length, limit)} shown</button><button class="rej" id="rejAll">Reject all shown</button>` : ''}
+  <span class="sp" style="flex:1"></span><input id="seed" placeholder="Suggest a word to mine next…"><button id="addSeed">Add</button></div>
+  ${list.length ? `<table><thead><tr><th>Word</th><th>Original vs duplicate (Wikipedia)</th><th>Duplicate share · 12 mo</th><th>Category</th><th>${tab === 'accepted' ? 'Publishes' : tab === 'published' ? 'Page' : 'Source · review'}</th><th></th></tr></thead><tbody>
+  ${shown.map((i, n) => { const s = status(i), sh = Math.round(i.share * 100); const a = i.A, b = i.B;
+    return `<tr class="st-${s} ${changes[i.id] ? 'chg' : ''}" data-id="${esc(i.id)}"><td class="w">${esc(i.word)}${i.onSite ? ' <span class="pill">on site</span>' : ''}</td>
+    <td class="pair"><a href="${wiki(a.title)}" target="_blank" rel="noopener">${esc(a.title)}</a> <span class="muted">vs</span> <a href="${wiki(b.title)}" target="_blank" rel="noopener">${esc(b.title)}</a><div class="d">${esc(a.desc || '')} · ${esc(b.desc || '')}</div></td>
+    <td class="share"><div class="sb"><i style="width:${sh}%"></i></div><small>${100 - sh}% / ${sh}% · ${fmt(i.total)} views</small></td>
+    <td><select data-cat>${Object.entries(CATS).map(([k, v]) => `<option value="${k}" ${cat(i) === k ? 'selected' : ''}>${v}</option>`).join('')}</select></td>
+    <td class="eta">${tab === 'accepted' ? 'Day ' + (Math.floor(n / perDay) + 1) + ' · ~' + day(Math.floor(n / perDay) + 1) : tab === 'published' && i.url ? `<a href="/${esc(i.url)}" target="_blank">open →</a> · <a href="?edit=${encodeURIComponent(i.url.replace(/^term\//, '').replace(/\/$/, ''))}">edit</a>` : esc(i.source || '')}${i.review ? `<div style="margin-top:4px;color:var(--txt)">${i.review.score != null ? 'Claude ' + i.review.score + '/10 · ' : ''}${esc(i.review.reason || '')}${i.reviewedBy === 'auto' ? ' · auto' : ''}</div>` : ''}</td>
+    <td style="white-space:nowrap">${s === 'published' ? `<span class="pill published">published ${esc(i.publishedAt || '')}</span>` : `<button class="acc" data-act="accepted" ${s === 'accepted' ? 'disabled' : ''}>Accept</button> <button class="rej" data-act="rejected" ${s === 'rejected' ? 'disabled' : ''}>Reject</button>${s !== 'pending' ? ' <button data-act="pending">Undo</button>' : ''}`}</td></tr>`; }).join('')}
+  </tbody></table>${list.length > limit ? `<p><button id="more">Show ${Math.min(200, list.length - limit)} more (${list.length - limit} hidden)</button></p>` : ''}` : `<p class="muted">Nothing here.</p>`}`;
+  app.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => { tab = b.dataset.tab; limit = 200; render(); });
+  app.querySelector('[data-live]').onclick = liveList;
+  $('#q').oninput = e => { q = e.target.value; clearTimeout(render.t); render.t = setTimeout(() => { render(); const el = $('#q'); el.focus(); el.setSelectionRange(q.length, q.length); }, 250); };
+  $('#cf').onchange = e => { catF = e.target.value; render(); };
+  if ($('#more')) $('#more').onclick = () => { limit += 200; render(); };
+  const now = () => new Date().toISOString();
+  app.querySelectorAll('tr[data-id]').forEach(tr => {
+    const id = tr.dataset.id;
+    tr.querySelectorAll('[data-act]').forEach(b => b.onclick = () => setChange(id, { status: b.dataset.act, acceptedAt: b.dataset.act === 'accepted' ? now() : undefined }));
+    const sel = tr.querySelector('[data-cat]'); if (sel) sel.onchange = e => setChange(id, { cat: e.target.value, status: changes[id]?.status ?? queue.items.find(i => i.id === id).status });
+  });
+  const bulk = st => { const t = now(); shown.forEach((i, n) => { changes[i.id] = { ...(changes[i.id] || {}), status: st, acceptedAt: st === 'accepted' ? t.replace(/\.\d+Z/, '.' + String(n).padStart(3, '0') + 'Z') : undefined }; }); render(); };
+  if ($('#accAll')) $('#accAll').onclick = () => bulk('accepted');
+  if ($('#rejAll')) $('#rejAll').onclick = () => bulk('rejected');
+  $('#addSeed').onclick = addSeed;
+}
+
+
+/* ---------- live terms: edit or remove a published page ---------- */
+const TFILES = ['terms-100.txt', 'terms-200.txt', 'terms-300.txt', 'terms-400.txt', 'terms-500.txt', 'terms-600.txt', 'terms-700.txt', 'terms-auto.txt', 'terms.txt'];
+const slug = s => String(s || '').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/&/g, ' and ').replace(/\+/g, ' plus ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const rowKey = c => slug(c[0]) + '/' + (slug(c[2]) || 'original') + '/' + (slug(c[5]) || 'duplicate');
+const FIELDS = [['term', 'Word'], ['cat', 'Category'], ['al', 'Original label'], ['aw', 'Original Wikipedia title'], ['ay', 'Original year'], ['bl', 'Duplicate label'], ['bw', 'Duplicate Wikipedia title'], ['by', 'Duplicate year'], ['note', 'One-line note'], ['da', 'Original definition (blank = Wikipedia)'], ['db', 'Duplicate definition (blank = Wikipedia)']];
+let liveTerms = null;
+async function liveList() {
+  history.replaceState(null, '', location.pathname);
+  app.innerHTML = '<p class="muted">Loading live terms…</p>';
+  if (!liveTerms) liveTerms = await (await fetch('/terms.json', { cache: 'no-store' })).json();
+  let lq = '';
+  const draw = () => { const L = liveTerms.filter(t => !lq || (t.term + ' ' + t.original.label + ' ' + t.duplicate.label).toLowerCase().includes(lq.toLowerCase())).slice(0, 150);
+    $('#ll').innerHTML = L.map(t => { const key = t.url.split('/term/')[1].replace(/\/$/, ''); return `<tr><td class="w">${esc(t.term)}</td><td class="pair">${esc(t.original.label)} <span class="muted">vs</span> ${esc(t.duplicate.label)}</td><td>${esc(CATS[t.category] || t.category)}</td><td style="white-space:nowrap"><a href="/term/${esc(key)}/" target="_blank">view</a> · <a href="?edit=${encodeURIComponent(key)}">edit</a></td></tr>`; }).join(''); };
+  app.innerHTML = `<p><button id="back">← Queue</button></p><div class="bar"><input id="lq" placeholder="Search ${liveTerms.length} live terms" style="min-width:320px"></div><table><thead><tr><th>Word</th><th>Original vs duplicate</th><th>Category</th><th></th></tr></thead><tbody id="ll"></tbody></table>`;
+  $('#back').onclick = () => render(); $('#lq').oninput = e => { lq = e.target.value; draw(); }; draw();
+}
+async function editTerm(key) {
+  app.innerHTML = `<p class="muted">Finding ${esc(key)} in the term files…</p>`;
+  let hit = null;
+  for (const f of TFILES) {
+    let file; try { file = await readFile('src/' + f); } catch (e) { continue; }
+    const lines = file.text.split('\n'), idx = lines.findIndex(l => l.trim() && !l.startsWith('#') && rowKey(l.split('|').map(x => (x || '').trim())) === key);
+    if (idx >= 0) { hit = { f, file, lines, idx, cols: lines[idx].split('|').map(x => (x || '').trim()) }; break; }
+  }
+  if (!hit) { app.innerHTML = `<p>Couldn't find <b>${esc(key)}</b> in the term files. <button id="back">← Back</button></p>`; $('#back').onclick = liveList; return; }
+  while (hit.cols.length < 13) hit.cols.push('');
+  const c = hit.cols;
+  app.innerHTML = `<p><button id="back">← Live terms</button> <a href="/term/${esc(key)}/" target="_blank" style="margin-left:10px">View page →</a></p>
+  <div class="card" style="max-width:820px"><h2 style="margin-top:0">Edit “${esc(c[0])}”</h2><p class="muted" style="font-size:13px">In src/${esc(hit.f)}, line ${hit.idx + 1}. Saving commits to main; the site rebuilds in about a minute.</p>
+  ${FIELDS.map(([k, l], n) => `<p><label class="muted" style="font-size:12px">${l}</label><br>${k === 'cat' ? `<select id="f${n}">${Object.entries(CATS).map(([v, t]) => `<option value="${v}" ${c[1] === v ? 'selected' : ''}>${t}</option>`).join('')}</select>` : n >= 8 ? `<textarea id="f${n}" rows="2" style="width:100%;font:inherit;color:var(--txt);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px">${esc(c[n])}</textarea>` : `<input id="f${n}" value="${esc(c[n])}" style="width:100%">`}</p>`).join('')}
+  <p id="urlwarn" class="muted" style="color:var(--amber)"></p>
+  <p><button class="go" id="esave">Save changes</button> <button class="rej" id="edel" style="float:right">Remove this term from the site</button></p></div>`;
+  const val = () => FIELDS.map((_, n) => ($('#f' + n).value || '').replace(/[|\n\r]/g, ' ').trim());
+  const warn = () => { const v = val(), nk = rowKey(v); $('#urlwarn').textContent = nk !== key ? `Changing the word or a label moves the page to /term/${nk}/ and the old URL will stop working.` : ''; };
+  app.querySelectorAll('input,select,textarea').forEach(el => el.oninput = warn);
+  $('#back').onclick = liveList;
+  $('#esave').onclick = async () => {
+    const v = val(); if (!v[0] || !v[2] || !v[5]) return msg('Word and both labels are required.');
+    const lines = hit.lines.slice(); lines[hit.idx] = v.concat(c.slice(11, 13)).join('|');
+    try { await writeFile('src/' + hit.f, lines.join('\n'), hit.file.sha, `Edit term "${v[0]}" (@${user.login} via /admin)`); liveTerms = null; msg('Saved. The page updates after the next deploy (about a minute).', 6000); editTerm(rowKey(v)); }
+    catch (e) { msg('Save failed: ' + e.message, 9000); }
+  };
+  $('#edel').onclick = async () => {
+    if (!confirm(`Remove "${c[0]}: ${c[2]} vs ${c[5]}" from the site? Its page will disappear after the next deploy.`)) return;
+    const lines = hit.lines.slice(); lines.splice(hit.idx, 1);
+    try {
+      await writeFile('src/' + hit.f, lines.join('\n'), hit.file.sha, `Remove term "${c[0]}" (@${user.login} via /admin)`);
+      try { const b = await readFile('discovery/blocklist.txt').catch(() => ({ sha: undefined, text: '# Words removed by an admin; the miner never suggests them again.\n' })); await writeFile('discovery/blocklist.txt', b.text.replace(/\s*$/, '\n') + c[0] + '\n', b.sha, `[queue] block "${c[0]}"`); } catch (e) {}
+      liveTerms = null; msg(`Removed "${c[0]}". It disappears after the next deploy.`, 6000); liveList();
+    } catch (e) { msg('Remove failed: ' + e.message, 9000); }
+  };
+}
+
+async function save() {
+  const ids = Object.keys(changes); if (!ids.length) return;
+  $('#save').disabled = true; $('#save').textContent = 'Saving…';
+  try {
+    // Re-read the latest queue so we never overwrite what the miner or publisher committed since this page loaded.
+    const f = await readFile(QPATH), fresh = JSON.parse(f.text); let acc = 0, rej = 0, cats = 0;
+    for (const it of fresh.items) { const c = changes[it.id]; if (!c || it.status === 'published') continue;
+      if (c.status && c.status !== it.status) { it.status = c.status; c.status === 'accepted' ? acc++ : c.status === 'rejected' ? rej++ : 0; if (c.status === 'accepted') it.acceptedAt = c.acceptedAt || new Date().toISOString(); else delete it.acceptedAt; it.reviewedBy = user.login; }
+      if (c.cat && c.cat !== it.cat) { it.cat = c.cat; cats++; } }
+    fresh.updated = new Date().toISOString();
+    await writeFile(QPATH, JSON.stringify(fresh), f.sha, `[queue] @${user.login}: accepted ${acc}, rejected ${rej}${cats ? ', recategorized ' + cats : ''}`);
+    msg(`Saved: ${acc} accepted, ${rej} rejected${cats ? ', ' + cats + ' recategorized' : ''}.`); await load();
+  } catch (e) { msg('Save failed: ' + e.message, 9000); render(); }
+}
+async function addSeed() {
+  const w = $('#seed').value.trim(); if (!w) return;
+  try { const f = await readFile(SEEDS); await writeFile(SEEDS, f.text.replace(/\s*$/, '\n') + w + '\n', f.sha, `[queue] @${user.login}: suggest "${w}"`); msg(`"${w}" will be checked in the next mining run.`); $('#seed').value = ''; }
+  catch (e) { msg('Couldn\'t add: ' + e.message, 8000); }
+}
+$('#save').onclick = save;
+$('#out').onclick = () => { try { localStorage.removeItem('dd_admin_token'); } catch (e) {} token = null; login(); };
+window.addEventListener('beforeunload', e => { if (Object.keys(changes).length) { e.preventDefault(); e.returnValue = ''; } });
+start();
+</script></body></html>

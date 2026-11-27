@@ -18,18 +18,12 @@ Format: term|field|original label|wikipedia title|year|duplicate label|wikipedia
 - Baked snapshot: put src/data.json (keyed by term/original/duplicate) and rebuild. scripts/collector.js produces it from a browser tab on trends.google.com.
   To refresh from a normal machine instead, run a Node script that calls the same endpoints (Wikipedia + HN work server-side; Google Trends rate-limits servers, so use a browser or a paid Trends API such as SerpApi).
 
-## Growing the site automatically
-.github/workflows/daily-terms.yml runs every morning:
-1. `node scripts/discover.mjs` scans yesterday's 1,000 most-read Wikipedia articles, a rotating slice of tech-titled articles
-   ("X (language model)", "X (software)"…), Hacker News front-page names, Google Trends, discovery/seeds.txt and yesterday's runners-up.
-   For each word it finds every Wikipedia article titled with exactly that word and keeps a pair only if both meanings get
-   15K+ pageviews a year, neither has won (duplicate share 5–95%), and it isn't a person, tragedy, election or franchise-vs-adaptation.
-   Claude then judges each survivor and writes the row in house style; only editor scores of 7/10+ are published, max 10/day.
-2. `node scripts/enrich.mjs` adds three extra sources per meaning into src/enrich.json: the official website's own one-sentence description, the first recorded date on Wikidata (plus IMDb/TMDB links), and the earliest HackerNoon story (needs HN_SEARCH_APP / HN_SEARCH_KEY / HN_SEARCH_INDEX secrets).
-3. `node scripts/refresh-data.mjs` bakes Wikipedia pageviews into src/data.json for any term without data (same format as sync.js).
-   On the 2nd of each month it re-collects every term (`--all`).
-3. Missing social cards are generated, the build is checked, and a PR opens (or it pushes to main if the AUTO_PUBLISH variable is "true").
+## Growing the site: the editor queue
+1. **Mondays — mine.** `scripts/mine-queue.mjs` starts from Wikipedia titles that already carry a qualifier ("Lean (proof assistant)", "Heat (1995 film)") plus a week of trending pages and words in discovery/seeds.txt, finds each word's strongest rival meaning, and keeps pairs where both get 15K+ pageviews a year and the newer one holds 5–95%. Results go to discovery/queue.json as *pending* (target 1,000).
+2. **Automatic review, no AI.** `scripts/review-queue.mjs` auto-accepts only clear, high-traffic fights: each meaning 50K+ Wikipedia views/yr, 300K+ combined, newer meaning 15–85%, word not already on the site, the two not the same kind of thing or the same family on Wikidata, and no people. Same-family or people → auto-rejected. Everything else is held and never publishes unless an admin accepts it. Tune with MIN_VIEWS_EACH / MIN_VIEWS_TOTAL repo variables.
+3. **Admin at deduplication.tech/admin** (GitHub fine-grained token with Contents read/write on this repo). Queue tabs (held, publishing queue, rejected, published) plus **Live terms**: edit any field of a published term or remove it (removed words go to discovery/blocklist.txt so they're never re-suggested). Every live term page shows an **Edit** button to browsers signed in at /admin.
+4. **Daily — publish.** `scripts/publish-queue.mjs` turns the next DAILY_LIMIT (default 50) accepted terms into rows in src/terms-auto.txt (original = the meaning Wikidata dates earlier), then the workflow validates them on Wikipedia, bakes pageviews (`refresh-data.mjs`), adds sources (`enrich.mjs`), makes social cards and pushes to main.
+5. **Monthly — refresh** every term's pageviews and sources.
 
-Setup: add the ANTHROPIC_API_KEY secret. Optional variables: AUTO_PUBLISH, DAILY_LIMIT, MIN_QUALITY, ANTHROPIC_MODEL.
-Want a specific word tried? Add it to discovery/seeds.txt. Every run writes discovery/log/DATE.json (what passed, what didn't and why).
-Try it locally without publishing: `node scripts/discover.mjs --dry-run`.
+Run any step by hand: Actions → daily-terms → Run workflow → publish / mine / refresh-all.
+Optional secrets: HN_SEARCH_APP/KEY/INDEX (earliest HackerNoon story). No AI API is used.

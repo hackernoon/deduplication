@@ -81,7 +81,7 @@ async function hackernoonFirst(term) {
   } catch (e) { return null; }
 }
 
-async function wikidataFor(titles) {
+export async function wikidataFor(titles) {
   // Wikipedia title -> Wikidata entity (claims + description)
   const qid = {};
   for (let i = 0; i < titles.length; i += 50) {
