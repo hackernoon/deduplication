@@ -6,12 +6,11 @@ Heat|media|Heat (physics)|Heat|ancient|Heat (1995 film)|Heat (1995 film)|1995|Th
 Speed|media|Speed (physics)|Speed|ancient|Speed (1994 film)|Speed (1994 film)|1994|Distance over time vs. a bus that can't go under 50.||||
 Soul|media|Soul|Soul|ancient|Soul (2020 film)|Soul (2020 film)|2020|The immortal self vs. Pixar's jazz pianist.||||
 Ratatouille|media|Ratatouille (dish)|Ratatouille|1700s|Ratatouille (film)|Ratatouille (film)|2007|A Provençal stew vs. the rat who cooks it.||||
-Tenet|media|Tenet|Tenet|ancient|Tenet (film)|Tenet (film)|2020|A principle vs. Nolan's palindrome. The film wins.||||
 Dunkirk|media|Dunkirk|Dunkirk|ancient|Dunkirk (2017 film)|Dunkirk (2017 film)|2017|A French port vs. Nolan's evacuation epic.||||
 Venom|media|Venom|Venom|ancient|Venom (2018 film)|Venom (2018 film)|2018|Snake toxin vs. Tom Hardy's symbiote.||||
 Black Panther|media|Black panther|Black panther|ancient|Black Panther (film)|Black Panther (film)|2018|The big cat vs. Wakanda.||||
 Smile|media|Smile|Smile|ancient|Smile (2022 film)|Smile (2022 film)|2022|The friendliest face vs. the scariest one.||||
-Pearl|media|Pearl|Pearl|ancient|Pearl (film)|Pearl (film)|2022|The gem vs. Ti West's farm-girl slasher.||||
+Pearl|media|Pearl|Pearl|ancient|Pearl (film)|Pearl (2022 film)|2022|The gem vs. Ti West's farm-girl slasher.||||
 Barbarian|media|Barbarian|Barbarian|ancient|Barbarian (2022 film)|Barbarian (2022 film)|2022|Rome's word for outsiders vs. an Airbnb horror movie.||||
 Babylon|media|Babylon|Babylon|ancient|Babylon (2022 film)|Babylon (2022 film)|2022|The ancient city vs. Damien Chazelle's Hollywood bacchanal.||||
 Napoleon|media|Napoleon|Napoleon|1769|Napoleon (2023 film)|Napoleon (2023 film)|2023|The emperor vs. Ridley Scott's version of him.||||
@@ -20,8 +19,8 @@ Conclave|media|Papal conclave|Papal conclave|1274|Conclave (film)|Conclave (film
 F1|media|Formula One|Formula One|1950|F1 (film)|F1 (film)|2025|The racing series vs. Brad Pitt in it.||||
 Frankenstein|media|Frankenstein (novel)|Frankenstein|1818|Frankenstein (2025 film)|Frankenstein (2025 film)|2025|Mary Shelley's novel vs. Guillermo del Toro's monster.||||
 Contagion|media|Contagion (disease)|Contagious disease|ancient|Contagion (film)|Contagion (2011 film)|2011|How disease spreads vs. the film everyone rewatched in 2020.||||
-Outbreak|media|Outbreak|Outbreak|ancient|Outbreak (film)|Outbreak (film)|1995|An epidemic vs. Dustin Hoffman chasing one.||||
-Boiler Room|media|Boiler room|Boiler room|1800s|Boiler Room (film)|Boiler Room (film)|2000|The basement room vs. the pump-and-dump movie.||||
+Outbreak|media|Outbreak|Outbreak|ancient|Outbreak (film)|Outbreak (1995 film)|1995|An epidemic vs. Dustin Hoffman chasing one.||||
+Boiler Room|media|Boiler room|Boiler room (building)|1800s|Boiler Room (film)|Boiler Room (film)|2000|The basement room vs. the pump-and-dump movie.||||
 Too Big to Fail|fintech|Too big to fail|Too big to fail|1984|Too Big to Fail (film)|Too Big to Fail (film)|2011|The bank-bailout doctrine vs. HBO's movie about it.||||
 Collateral|fintech|Collateral (finance)|Collateral (finance)|1700s|Collateral (film)|Collateral (film)|2004|What secures a loan vs. Tom Cruise in a cab.||||
 Bond|fintech|Bond (finance)|Bond (finance)|1600s|James Bond|James Bond|1953|Fixed income vs. 007.||||
@@ -30,15 +29,12 @@ Office|business|Office|Office|ancient|Microsoft Office|Microsoft Office|1990|The
 Office|media|Office|Office|ancient|The Office (TV series)|The Office (American TV series)|2005|The workplace vs. Dunder Mifflin.||||
 Community|media|Community|Community|ancient|Community (TV series)|Community (TV series)|2009|Your neighbors vs. Greendale.||||
 House|media|House|House|ancient|House (TV series)|House (TV series)|2004|A home vs. Hugh Laurie's diagnostician.||||
-Scrubs|media|Scrubs (clothing)|Scrubs (clothing)|1940s|Scrubs (TV series)|Scrubs (TV series)|2001|Hospital wear vs. Sacred Heart.||||
-Entourage|media|Entourage|Entourage|1600s|Entourage (TV series)|Entourage (American TV series)|2004|A star's hangers-on vs. HBO's show about them.||||
-Homeland|media|Homeland|Homeland|ancient|Homeland (TV series)|Homeland (TV series)|2011|One's native land vs. Carrie Mathison.||||
+Scrubs|media|Scrubs (clothing)|Scrubs (clothing)|1940s|Scrubs (TV series)|Scrubs (2001 TV series)|2001|Hospital wear vs. Sacred Heart.||||
 Adolescence|media|Adolescence|Adolescence|ancient|Adolescence (TV series)|Adolescence (TV series)|2025|The life stage vs. Netflix's one-take drama about it.||||
 Silo|media|Silo|Silo|1800s|Silo (TV series)|Silo (TV series)|2023|Grain storage vs. Apple TV's underground city.||||
 Paradise|media|Paradise|Paradise|ancient|Paradise (TV series)|Paradise (American TV series)|2025|Heaven on earth vs. Hulu's bunker thriller.||||
 Ambulance|media|Ambulance|Ambulance|1800s|Ambulance (2022 film)|Ambulance (2022 film)|2022|The vehicle vs. Michael Bay driving one.||||
 CODA|media|Coda (music)|Coda (music)|1700s|CODA (film)|CODA (2021 film)|2021|The closing passage vs. the Best Picture winner.||||
-Spotlight|media|Spotlight|Spotlight|1900s|Spotlight (film)|Spotlight (film)|2015|Stage lighting vs. the Best Picture about the Boston Globe.||||
 Lucy|science|Lucy (Australopithecus)|Lucy (Australopithecus)|1974|Lucy (2014 film)|Lucy (2014 film)|2014|Our 3.2-million-year-old ancestor vs. Scarlett Johansson using 100% of her brain.||||
 Spectre|security|Spectre (2015 film)|Spectre (2015 film)|2015|Spectre (CPU vulnerability)|Spectre (security vulnerability)|2018|A Bond film vs. the chip flaw that haunts every processor.||||
 Meltdown|security|Nuclear meltdown|Nuclear meltdown|1950s|Meltdown (CPU vulnerability)|Meltdown (security vulnerability)|2018|Reactor core failure vs. the Intel chip bug.||||
@@ -48,14 +44,12 @@ Tor|security|Tor (rock formation)|Tor (rock formation)|ancient|Tor (network)|Tor
 Palo Alto|security|Palo Alto, California|Palo Alto, California|1894|Palo Alto Networks|Palo Alto Networks|2005|The city vs. the firewall company.||||
 Axon|business|Axon|Axon|1800s|Axon (Taser maker)|Axon Enterprise|1993|A nerve fiber vs. the body-camera and Taser company.||||
 MiniMax|ai|Minimax|Minimax|1928|MiniMax (AI company)|MiniMax (company)|2021|Game theory's decision rule vs. the Chinese AI lab.||||
-Vertex|ai|Vertex (geometry)|Vertex (geometry)|ancient|Vertex AI|Vertex AI|2021|A corner of a shape vs. Google's AI platform.||||
 Matter|hardware|Matter|Matter|ancient|Matter (smart home standard)|Matter (standard)|2022|Physical stuff vs. the smart-home standard.||||
 Thunderbolt|hardware|Thunderbolt|Thunderbolt|ancient|Thunderbolt (interface)|Thunderbolt (interface)|2011|Zeus's weapon vs. the port on your Mac.||||
 Snapdragon|hardware|Snapdragon (flower)|Antirrhinum|ancient|Qualcomm Snapdragon|Qualcomm Snapdragon|2007|A garden flower vs. the chip in most Android phones.||||
 Newton|hardware|Isaac Newton|Isaac Newton|1643|Apple Newton|Apple Newton|1993|Gravity vs. Apple's first handheld flop.||||
 Fog|infra|Fog|Fog|ancient|Fog computing|Fog computing|2012|Low cloud vs. cloud computing pushed to the edge.||||
 Glacier|infra|Glacier|Glacier|ancient|Amazon S3 Glacier|Amazon S3 Glacier|2012|Slow ice vs. slow storage.||||
-Athena|data|Athena|Athena|ancient|Amazon Athena|Amazon Athena|2016|The goddess of wisdom vs. SQL over S3.||||
 Rosetta|code|Rosetta Stone|Rosetta Stone|196 BC|Rosetta (Apple)|Rosetta (software)|2006|The stone that translated hieroglyphs vs. the software that translates Intel apps for Apple chips.||||
 Obsidian|code|Obsidian|Obsidian|ancient|Obsidian (app)|Obsidian (software)|2020|Volcanic glass vs. the note-taking app.||||
 Sketch|design|Sketch (drawing)|Sketch (drawing)|ancient|Sketch (app)|Sketch (software)|2010|A rough drawing vs. the design tool Figma dethroned.||||
@@ -90,7 +84,7 @@ Chipotle|business|Chipotle (pepper)|Chipotle|ancient|Chipotle Mexican Grill|Chip
 Chevron|business|Chevron (insignia)|Chevron (insignia)|ancient|Chevron Corporation|Chevron Corporation|1984|A V-shaped stripe vs. the oil major.||||
 Celsius|crypto|Celsius|Celsius|1742|Celsius Network|Celsius Network|2017|The temperature scale vs. the crypto lender that froze.||||
 Terra|crypto|Terra (mythology)|Terra (mythology)|ancient|Terra (blockchain)|Terra (blockchain)|2018|Mother Earth vs. the stablecoin that collapsed.||||
-Fable|gaming|Fable|Fable|ancient|Fable (video game)|Fable (video game)|2004|Aesop vs. Lionhead's RPG.||||
+Fable|gaming|Fable|Fable|ancient|Fable (video game)|Fable (2004 video game)|2004|Aesop vs. Lionhead's RPG.||||
 Battlefield|gaming|Battlefield|Battlefield|ancient|Battlefield (video game series)|Battlefield (video game series)|2002|Where wars are fought vs. where gamers fight them.||||
 Braid|gaming|Braid (hairstyle)|Braid (hairstyle)|ancient|Braid (video game)|Braid (video game)|2008|The hairstyle vs. the indie time-rewind game.||||
 Limbo|gaming|Limbo|Limbo|ancient|Limbo (video game)|Limbo (video game)|2010|Theology's in-between vs. the black-and-white puzzle game.||||
@@ -100,9 +94,8 @@ Freelancer|gaming|Freelancer|Freelancer|1800s|Freelancer (video game)|Freelancer
 Cassini|science|Giovanni Domenico Cassini|Giovanni Domenico Cassini|1625|Cassini (spacecraft)|Cassini–Huygens|1997|The astronomer vs. the probe that dove into Saturn.||||
 Magellan|science|Ferdinand Magellan|Ferdinand Magellan|1480|Magellan (spacecraft)|Magellan (spacecraft)|1989|The circumnavigator vs. the Venus mapper.||||
 Curiosity|science|Curiosity|Curiosity|ancient|Curiosity (rover)|Curiosity (rover)|2012|The urge to know vs. the rover on Mars.||||
-Perseverance|science|Perseverance|Perseverance|ancient|Perseverance (rover)|Perseverance (rover)|2021|Grit vs. the rover that carried a helicopter.||||
 Sojourner|science|Sojourner Truth|Sojourner Truth|1797|Sojourner (rover)|Sojourner (rover)|1997|The abolitionist vs. the first Mars rover, named for her.||||
-Dragonfly|science|Dragonfly|Dragonfly|ancient|Dragonfly (Titan mission)|Dragonfly (Titan space mission)|2028|The insect vs. NASA's drone headed for Titan.||||
+Dragonfly|science|Dragonfly|Dragonfly|ancient|Dragonfly (Titan mission)|Dragonfly (Titan space probe)|2028|The insect vs. NASA's drone headed for Titan.||||
 Psyche|science|Psyche (mythology)|Psyche (mythology)|ancient|Psyche (spacecraft)|Psyche (spacecraft)|2023|The goddess of the soul vs. the probe to a metal asteroid.||||
 Europa|science|Europa (mythology)|Europa (consort of Zeus)|ancient|Europa (moon)|Europa (moon)|1610|A Phoenician princess vs. Jupiter's ocean moon.||||
 Io|science|Io (mythology)|Io (mythology)|ancient|Io (moon)|Io (moon)|1610|Zeus's lover vs. the most volcanic moon.||||
@@ -113,7 +106,6 @@ Phobos|science|Phobos (mythology)|Phobos (mythology)|ancient|Phobos (moon)|Phobo
 Ceres|science|Ceres (mythology)|Ceres (mythology)|ancient|Ceres (dwarf planet)|Ceres (dwarf planet)|1801|The harvest goddess vs. the asteroid belt's biggest body.||||
 Eris|science|Eris (mythology)|Eris (mythology)|ancient|Eris (dwarf planet)|Eris (dwarf planet)|2005|The goddess of strife vs. the world that demoted Pluto.||||
 Sedna|science|Sedna (mythology)|Sedna (mythology)|ancient|Sedna (dwarf planet)|Sedna (dwarf planet)|2003|The Inuit sea goddess vs. the most distant known world.||||
-Vesta|science|Vesta (mythology)|Vesta (mythology)|ancient|4 Vesta (asteroid)|4 Vesta|1807|The hearth goddess vs. the asteroid.||||
 Neutron|science|Neutron|Neutron|1932|Neutron (rocket)|Neutron (rocket)|2025|The particle vs. Rocket Lab's reusable rocket.||||
 Antares|science|Antares (star)|Antares|ancient|Antares (rocket)|Antares (rocket)|2013|The red supergiant vs. Northrop's rocket.||||
 Proton|science|Proton|Proton|1917|Proton (rocket)|Proton (rocket family)|1965|The particle vs. Russia's workhorse rocket.||||
@@ -130,8 +122,6 @@ Gandhi|media|Mahatma Gandhi|Mahatma Gandhi|1869|Gandhi (film)|Gandhi (film)|1982
 Patton|media|George S. Patton|George S. Patton|1885|Patton (film)|Patton (film)|1970|The general vs. George C. Scott in front of the flag.||||
 Cabaret|media|Cabaret|Cabaret|1881|Cabaret (1972 film)|Cabaret (1972 film)|1972|Nightclub entertainment vs. Liza Minnelli.||||
 Selma|media|Selma, Alabama|Selma, Alabama|1820|Selma (film)|Selma (film)|2014|The town vs. the march that made it famous.||||
-Milk|media|Milk|Milk|ancient|Milk (2008 film)|Milk (2008 film)|2008|The drink vs. Sean Penn as Harvey Milk.||||
-Sicario|media|Sicario|Sicario|1900s|Sicario (2015 film)|Sicario (2015 film)|2015|Spanish for hitman vs. Villeneuve's cartel thriller.||||
 Twilight|media|Twilight|Twilight|ancient|Twilight (2008 film)|Twilight (2008 film)|2008|The hour after sunset vs. sparkling vampires.||||
 Philadelphia|media|Philadelphia|Philadelphia|1682|Philadelphia (film)|Philadelphia (film)|1993|The city vs. Tom Hanks's first Oscar.||||
 Zodiac|media|Zodiac|Zodiac|ancient|Zodiac (film)|Zodiac (film)|2007|The 12 signs vs. Fincher's serial-killer procedural.||||
@@ -140,7 +130,7 @@ Casino|media|Casino|Casino|1700s|Casino (1995 film)|Casino (1995 film)|1995|Wher
 Ronin|media|Rōnin|Rōnin|1100s|Ronin (film)|Ronin (film)|1998|Masterless samurai vs. the greatest car chase in Paris.||||
 Cinderella|media|Cinderella|Cinderella|1697|Cinderella (1950 film)|Cinderella (1950 film)|1950|The folk tale vs. Disney's version.||||
 Snow White|media|Snow White|Snow White|1812|Snow White (2025 film)|Snow White (2025 film)|2025|The Grimm tale vs. Disney's live-action remake.||||
-Peter Pan|media|Peter Pan|Peter Pan|1902|Peter Pan (1953 film)|Peter Pan (1953 film)|1953|J.M. Barrie's boy vs. Disney's.||||
+Peter Pan|media|Peter Pan|Peter Pan (character)|1902|Peter Pan (1953 film)|Peter Pan (1953 film)|1953|J.M. Barrie's boy vs. Disney's.||||
 Tarzan|media|Tarzan|Tarzan|1912|Tarzan (1999 film)|Tarzan (1999 film)|1999|Burroughs's ape-man vs. Disney's and Phil Collins's.||||
 Taxi|media|Taxi|Taxi|1900s|Taxi (TV series)|Taxi (TV series)|1978|A cab vs. the sitcom about a cab garage.||||
 Monk|media|Monk|Monk|ancient|Monk (TV series)|Monk (TV series)|2002|A religious ascetic vs. the obsessive detective.||||
@@ -170,7 +160,6 @@ Casablanca|media|Casablanca|Casablanca|ancient|Casablanca (film)|Casablanca (fil
 Metropolis|media|Metropolis|Metropolis|ancient|Metropolis (1927 film)|Metropolis (1927 film)|1927|A big city vs. the first robot movie.||||
 Fantasia|media|Fantasia (music)|Fantasia (music)|1500s|Fantasia (1940 film)|Fantasia (1940 film)|1940|A free-form composition vs. Mickey's broomsticks.||||
 Elysium|media|Elysium|Elysium|ancient|Elysium (film)|Elysium (film)|2013|The Greek afterlife vs. Matt Damon's orbital haven.||||
-Oblivion|media|Oblivion|Oblivion|ancient|Oblivion (2013 film)|Oblivion (2013 film)|2013|Being forgotten vs. Tom Cruise fixing drones.||||
 Annihilation|media|Annihilation (physics)|Annihilation|1930s|Annihilation (film)|Annihilation (film)|2018|Matter meets antimatter vs. the Shimmer.||||
 Transcendence|ai|Transcendence (philosophy)|Transcendence (philosophy)|ancient|Transcendence (film)|Transcendence (2014 film)|2014|Going beyond the physical vs. Johnny Depp uploaded into an AI.||||
 Battleship|media|Battleship|Battleship|1890s|Battleship (film)|Battleship (film)|2012|The warship vs. Rihanna fighting aliens.||||
@@ -178,5 +167,5 @@ Deja Vu|media|Déjà vu|Déjà vu|1876|Déjà Vu (2006 film)|Déjà Vu (2006 fil
 Primer|media|Primer (paint)|Primer (paint)|1800s|Primer (film)|Primer (film)|2004|Undercoat vs. the $7,000 time-travel cult film.||||
 Greenland|media|Greenland|Greenland|ancient|Greenland (film)|Greenland (film)|2020|The island vs. Gerard Butler outrunning a comet.||||
 Volcano|media|Volcano|Volcano|ancient|Volcano (1997 film)|Volcano (1997 film)|1997|The mountain vs. lava on Wilshire Boulevard.||||
-Daylight|media|Daylight|Daylight|ancient|Daylight (film)|Daylight (film)|1996|Sunlight vs. Stallone in a collapsed tunnel.||||
+Daylight|media|Daylight|Daylight|ancient|Daylight (film)|Daylight (1996 film)|1996|Sunlight vs. Stallone in a collapsed tunnel.||||
 Deep Impact|science|Deep Impact (film)|Deep Impact (film)|1998|Deep Impact (spacecraft)|Deep Impact (spacecraft)|2005|The film came first; NASA named a comet-smashing probe after it.||||

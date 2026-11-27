@@ -301,3 +301,12 @@ footer.fat .fgrid{grid-template-columns:repeat(5,minmax(0,1fr))}
 .split.win-a .stamp{color:#e9eae6;border-color:#e9eae6;background:rgba(20,21,21,.55)}
 .split.win-b .stamp{background:rgba(20,21,21,.75)}
 .term-mark,.split.win-a .term-mark,.split.win-c .term-mark{background-image:linear-gradient(90deg,#f1f2ee 0 calc(100% - var(--dup)),var(--green) calc(100% - var(--dup)) 100%);-webkit-text-stroke:1px rgba(0,0,0,.25)}
+
+/* extra sources under each meaning (scripts/enrich.mjs) */
+.srcs{margin-top:14px;display:grid;gap:10px;border-top:1px solid rgba(127,127,127,.25);padding-top:12px}
+.src>span{display:block;font:600 11px/1.4 var(--mono,monospace);text-transform:uppercase;letter-spacing:.08em;opacity:.65;margin-bottom:4px}
+.src blockquote{margin:0;font-size:15px;line-height:1.45}
+.src b{font-size:15px}
+.src cite{display:block;font-style:normal;font-size:12px;opacity:.75;margin-top:2px}
+.src cite a{color:inherit}
+.hnlinks a.first{font-weight:600}

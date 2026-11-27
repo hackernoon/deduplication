@@ -1,4 +1,4 @@
-# Runs on any pull request that adds or edits terms. It:
+# Runs on any pull request or push to main that adds or edits terms (and on demand from the Actions tab). It:
 #   1. checks every new row against Wikipedia and removes ones that don't qualify (missing article, disambiguation page,
 #      or one meaning at 98%+ of pageviews) — removed rows go to discovery/rejected-terms.txt with the reason
 #   2. bakes Wikipedia pageview data for the surviving new terms into src/data.json
@@ -7,22 +7,34 @@ name: check-new-terms
 on:
   pull_request:
     paths: ['src/terms*.txt']
+  push:
+    branches: [main]
+    paths: ['src/terms*.txt']
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
   check:
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-        with: { ref: '${{ github.head_ref }}' }
+        with: { ref: '${{ github.head_ref || github.ref_name }}' }
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - name: Check new terms on Wikipedia
         run: node scripts/validate-terms.mjs
       - name: Bake pageview data for new terms
         run: node scripts/refresh-data.mjs
+      - name: Add extra sources (own words, first recorded, HackerNoon)
+        env:
+          HN_SEARCH_APP: ${{ secrets.HN_SEARCH_APP }}
+          HN_SEARCH_KEY: ${{ secrets.HN_SEARCH_KEY }}
+          HN_SEARCH_INDEX: ${{ secrets.HN_SEARCH_INDEX }}
+        run: node scripts/enrich.mjs
+      - name: Pageview coverage
+        run: node -e "const d=require('./src/data.json');const j=JSON.parse(require('child_process').execSync('SKIP_WIKI=1 node build.mjs --jobs >/dev/null && cat jobs.json'));const miss=j.filter(([k,,,a,b])=>a&&b&&!(d[k]&&d[k].wp));console.log('terms with Wikipedia pageview data:',j.length-miss.length,'of',j.length);miss.forEach(m=>console.log('  missing:',m[0]));require('fs').unlinkSync('jobs.json')"
       - name: Build check
         run: node build.mjs | tail -3
       - name: Commit results to this pull request

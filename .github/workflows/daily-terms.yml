@@ -49,7 +49,15 @@ jobs:
 
       - name: Monthly full refresh
         if: env.MONTHLY == 'true'
-        run: node scripts/refresh-data.mjs --all
+        run: node scripts/refresh-data.mjs --all && node scripts/enrich.mjs --all
+
+      - name: Add extra sources for new terms
+        if: env.MONTHLY != 'true'
+        env:
+          HN_SEARCH_APP: ${{ secrets.HN_SEARCH_APP }}
+          HN_SEARCH_KEY: ${{ secrets.HN_SEARCH_KEY }}
+          HN_SEARCH_INDEX: ${{ secrets.HN_SEARCH_INDEX }}
+        run: node scripts/enrich.mjs
 
       - name: Social cards for pages that don't have one
         if: env.MONTHLY != 'true'

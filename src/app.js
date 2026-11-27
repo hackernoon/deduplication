@@ -11,7 +11,8 @@
   const PV = 'https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/';
 
   async function j(url) {
-    const r = await fetch(url, { headers: { 'Api-User-Agent': 'deduplication.tech (HackerNoon)' } });
+    // Only the MediaWiki API accepts the Api-User-Agent header cross-origin; sending it to wikimedia.org fails the CORS preflight.
+    const r = await fetch(url, url.startsWith(WAPI) ? { headers: { 'Api-User-Agent': 'deduplication.tech (HackerNoon)' } } : {});
     if (!r.ok) throw new Error(r.status + ' ' + url);
     return r.json();
   }

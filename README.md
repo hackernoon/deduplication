@@ -25,7 +25,8 @@ Format: term|field|original label|wikipedia title|year|duplicate label|wikipedia
    For each word it finds every Wikipedia article titled with exactly that word and keeps a pair only if both meanings get
    15K+ pageviews a year, neither has won (duplicate share 5–95%), and it isn't a person, tragedy, election or franchise-vs-adaptation.
    Claude then judges each survivor and writes the row in house style; only editor scores of 7/10+ are published, max 10/day.
-2. `node scripts/refresh-data.mjs` bakes Wikipedia pageviews into src/data.json for any term without data (same format as sync.js).
+2. `node scripts/enrich.mjs` adds three extra sources per meaning into src/enrich.json: the official website's own one-sentence description, the first recorded date on Wikidata (plus IMDb/TMDB links), and the earliest HackerNoon story (needs HN_SEARCH_APP / HN_SEARCH_KEY / HN_SEARCH_INDEX secrets).
+3. `node scripts/refresh-data.mjs` bakes Wikipedia pageviews into src/data.json for any term without data (same format as sync.js).
    On the 2nd of each month it re-collects every term (`--all`).
 3. Missing social cards are generated, the build is checked, and a PR opens (or it pushes to main if the AUTO_PUBLISH variable is "true").
 
